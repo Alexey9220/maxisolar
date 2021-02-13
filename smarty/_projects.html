@@ -1,0 +1,49 @@
+<div class="wrapper">
+	<div class="container-full">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="section__title">
+					<h3><!--{$Parameters.projects_title}--></h3>
+					<div class="section__separator">
+						<p><!--{$Parameters.projects_titledpn}--></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>    
+    <div class="container-full">
+        <div class="row relative">
+            <div id="owl__slider__projects">
+                <!--{section name=i loop=$project_top}-->
+                <div class="item center">
+                    <div class="col__project">
+                        <div class="col__project__link">
+                            <img src="<!--{$project_top[i].img}-->" alt="<!--{$project_top[i].name}-->">
+                            <div class="col__project__layer"></div>
+                            <div class="col__project__link">
+                                <a class="btn white-color b-large b-60" title="Подробнее" href="<!--{$project_top[i].href}-->"><span class="lnr lnr-link"></span> Подробнее</a>
+                                <a data-reveal-id="findprice" class="btn orange-color b-large b-60" title="Узнать стоимость">Узнать стоимость</a>
+                            </div>   
+                            <span class="col__project__tariff"><span class="lnr lnr-leaf"></span> Зеленый тариф</span>			
+                        </div>
+                        <div class="title">
+                            <a href="<!--{$project_top[i].href}-->" title="<!--{$project_top[i].name}-->"><!--{$project_top[i].name}--></a>
+                            <div class="description"><!--{$project_top[i].short_dpn}--></div>
+                            <div class="date"><!--{$project_top[i].date}--></div>
+                        </div>
+                    </div>
+                </div>
+                <!--{/section}-->
+            </div>
+            <div class="owl__slider__controls">
+				<div class="slider_arrow slider_arrow_left"><span class="lnr lnr-chevron-left"></span></div>
+				<div class="slider_arrow slider_arrow_right"><span class="lnr lnr-chevron-right"></span></div>
+			</div>
+        </div> 
+        <div class="row">
+            <div class="col-lg-12 center wow fadeInRightBig" data-wow-duration=".2s">
+                <a href="<!--{$global_href}-->projects/" class="btn b-large orange-color" title="Смотреть все проекты">Смотреть все проекты <span class="lnr lnr-chevron-right"></span></a>
+            </div>
+        </div>
+    </div>
+</div>

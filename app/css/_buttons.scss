@@ -1,0 +1,108 @@
+.btn {
+    font-family: $global-font-family;
+    font-weight: $btn--font-weigh;
+    color: $btn--color;
+    background-color: transparent;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: initial;
+    text-align: center;
+    border-radius: $btn--radius;
+    appearance: none;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+
+    .lnr {
+        vertical-align: middle;
+    }
+}
+.b-large {
+    padding: 16px 52px;
+    font-size: 15px;
+}
+.b-average {
+    padding: 10px 28px;
+    font-size: 13px;
+}
+.b-small {
+    padding: 14px 14px;
+    font-size: 12px;
+}
+.b-xs-small {
+    padding: 5px 28px;
+    font-size: 12px;
+}
+.b-full {
+    width: $btn--width-100;
+}
+.b-60 {
+    width: $btn--width-60;
+}
+.b-90 {
+    width: $btn--width-90;
+}
+.b-ml-10 {
+    margin-left: 10px;
+}
+.orange-color {
+    color: $btn--color;
+    background: $color--orange;
+    border: 1px solid $color--orange;
+    transition: $btn--transition;
+
+    &:hover {
+        color: $btn--color;
+        border: 1px solid $color--orange--hover;
+        background: $color--orange--hover;
+    }
+}
+.yellow-color {
+    color: $btn--color;
+    background: $color--yellow;
+    border: 1px solid $color--yellow;
+    transition: $btn--transition;
+
+    &:hover {
+        color: $btn--color;
+        border: 1px solid $color--yellow--hover;
+        background: $color--yellow--hover;
+    }
+}
+.green-color {
+    color: $btn--color;
+    background: $color--green;
+    border: 1px solid $color--green;
+    transition: $btn--transition;
+
+    &:hover {
+        color: $btn--color;
+        border: 1px solid $color--green--hover;
+        background: $color--green--hover;
+    }
+}
+.grey-color {
+    color: $btn--color;
+    background: $color--grey;
+    border: 1px solid $color--grey;
+    transition: $btn--transition;
+
+    &:hover {
+        color: $btn--color;
+        border: 1px solid $color--grey--hover;
+        background: $color--grey--hover;
+    }
+}
+.white-color {
+    color: $btn--color;
+    background: $color--white;
+    border: 1px solid $btn--color;
+    transition: $btn--transition;
+
+    &:hover {
+        color: $btn--color;
+        background: $color--grey--hover;
+        border: 1px solid $color--grey--hover;
+    }
+}

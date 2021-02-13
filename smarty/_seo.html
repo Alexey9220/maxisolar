@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="<!--{$language}-->">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><!--{$SEO.title}--></title>	
+<meta name="description" content="<!--{$SEO.description}-->" />
+<meta property="og:title" content="<!--{$OPENGRAPH.title}-->" />
+<meta property="og:type" content="article">
+<meta property="og:url" content="<!--{$OPENGRAPH.url}-->" />
+<meta property="og:image" content="<!--{$OPENGRAPH.img}--><!--{$globalParams.cache_response}-->" />
+<meta property="og:description" content="<!--{$OPENGRAPH.description}-->" />
+
+<meta name="robots" content="<!--{$globalParams.robots}-->" />
+<meta name="format-detection" content="telephone=no">
+<base href="<!--{$L_HOME}-->">
+
+<!--{$globalParams.google_webmaster}-->
+<!--{$globalParams.yandex_webmaster}-->
+<!--{$globalParams.orher_webmaster}-->
+
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!--{section name=i loop=$lng_list}-->
+<!--{if $lng_list[i].lng_href == 'default'}-->
+<link rel="alternate" hreflang="<!--{$lng_list[i].lng_params}-->" href="<!--{$lng_list[i].url_adress}--><!--{$URI_LNG}-->" />
+<!--{else}-->
+<link rel="alternate" hreflang="<!--{$lng_list[i].lng_params}-->" href="<!--{$lng_list[i].url_adress}--><!--{$lng_list[i].lng_href}--><!--{if $lng_list[i].link_main !=''}--><!--{$lng_list[i].link_main}--><!--{/if}--><!--{$lng_list[i].link}-->" />
+<!--{/if}-->
+<!--{/section}-->
+
+<link rel="stylesheet" type="text/css" href="<!--{$SITE__TEMPLATE}-->/css/main.css">
+<link rel="stylesheet" type="text/css" href="<!--{$SITE__TEMPLATE}-->/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="<!--{$SITE__TEMPLATE}-->/css/responsive.css">
+
+<link rel="icon" href="<!--{$SITE__TEMPLATE}-->/favicon/favicon.ico" type="image/x-icon"/> 
+<link rel="shortcut icon" href="<!--{$SITE__TEMPLATE}-->/favicon/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" sizes="57x57" href="<!--{$SITE__TEMPLATE}-->/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="<!--{$SITE__TEMPLATE}-->/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="<!--{$SITE__TEMPLATE}-->/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="<!--{$SITE__TEMPLATE}-->/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="<!--{$SITE__TEMPLATE}-->/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="<!--{$SITE__TEMPLATE}-->/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="<!--{$SITE__TEMPLATE}-->/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="<!--{$SITE__TEMPLATE}-->/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="<!--{$SITE__TEMPLATE}-->/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="<!--{$SITE__TEMPLATE}-->/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="<!--{$SITE__TEMPLATE}-->/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="<!--{$SITE__TEMPLATE}-->/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="<!--{$SITE__TEMPLATE}-->/favicon/favicon-16x16.png">
+<link rel="manifest" href="<!--{$SITE__TEMPLATE}-->/favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="<!--{$SITE__TEMPLATE}-->/favicon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<!--{$globalParams.facebook_pixel}-->
+<!--{$globalParams.google_analytics}-->
+<!--{$globalParams.google_remarketing}-->
+<!--{$globalParams.yandex_metrica}-->
+
+</head>

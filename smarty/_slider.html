@@ -1,0 +1,29 @@
+<div class="relative">
+	<div id="owl__slider" class="owl__slider">
+		<!--{section name=i loop=$slider}-->
+		<div class="owl__slider__item">
+			<div class="owl__slider__wrapper" style="background-image: url('<!--{$slider[i].img}--><!--{$globalParams.cache_response}-->');">	
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-10 col-lg-12 center">
+							<div class="owl__slider__content">
+								<div class="title"><!--{$slider[i].slide_title}--></div>
+								<div class="description"><!--{$slider[i].slide_dpn}--></div>
+								<div class="link">
+									<a data-reveal-id="zvonok" class="btn b-large orange-color" title="<!--{$slider[i].link_text}-->"><!--{$slider[i].link_text}--></a>
+									<a class="btn b-ml-10 b-large white-color" href="<!--{$slider[i].link_info}-->"><span class="lnr lnr-link"></span> <!--{$slider[i].link_infotext}--></a>
+								</div>
+							</div>						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--{/section}-->
+	</div>
+	<div class="owl__slider__controls container-full">
+		<div class="slider_arrow slider_arrow_left"><span class="lnr lnr-chevron-left"></span></div>
+		<div class="slider_arrow slider_arrow_right"><span class="lnr lnr-chevron-right"></span></div>
+	</div>
+	<div class="clearfix"></div>
+</div>

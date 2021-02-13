@@ -1,0 +1,58 @@
+// fonts, typograpfy
+$global-font-family:      "Montserrat", Verdana, Tahoma, sans-serif; // Шрифт всего сайта
+$global-font-size:        16px; // Размер шрифта всего сайта
+$global-bgd-color:        #fff; // Цвет фона
+$global-text-color:       #2a2a2a; // Цвет текста
+$global-shade-color:      #dbdbdb; // Цвет оттенок
+$global-link-color:       #0b1875; // Цвет ссылок
+$global-link-hover:       #2a2a2a; // Hover ссылок
+$global-bg-background:    #0b1875;  // Заливка цветов
+$global-bg-opacity:       rgba(11, 24, 117, 0.55); // Прозрачность слайдера - hover
+$global-nav-fixed-bg:     #f6f6f6; // Цвет фона nav-fixed
+$global-footer-bg:        #474747; // Заливка футера
+$global-box-shadow-45:    0px 0px 15px 0px rgba(123, 123, 123, 0.45); // box-shadow 45%
+$global-box-shadow-25:    0px 0px 15px 0px rgba(123, 123, 123, 0.25); // box-shadow 25%
+$global-box-shadow-15:    0px 0px 15px 0px rgba(123, 123, 123, 0.15); // box-shadow 25%
+
+$global-font-weight: 400; // font-weight всего текста
+$headig-font-weight: 600; // H1 - H6 заголовки
+
+$global-title-size:   24px; // font-size заголовков
+$global-title-weight: 600; // H1 - H6 заголовки
+
+$reveal-modal-backg: rgba(0, 0, 0, .45); // Фон reveal-bg
+$width-reveal-modal: 600px; // Ширина модального окна
+$backg-reveal-modal: #f6f6f6; // Фон модального окно
+$title-form-weight: 600; // Заголовок модальное окно
+
+$reveal-success:  #009a3d;
+$reveal-error:  #f00f0f;
+
+// buttons
+$btn--color: #fff;
+$btn--font-weigh: 400;
+$btn--width-60: 60%;
+$btn--width-90: 90%;
+$btn--width-100: 100%;
+$btn--transition: background 350ms ease-in-out, border-color 350ms ease-in-out, color 150ms ease-in-out;
+$btn--radius: 0;
+
+// colors
+$color--orange: #ff8400;
+$color--yellow: #ffbe0e;
+$color--green:  #009688;
+$color--grey:   #dedede;
+$color--white:  transparent;
+
+// path
+$path-link-color:  #fff;
+$path-link-hover:  #fff;
+
+$color--orange--hover: #262626;
+$color--yellow--hover: #262626;
+$color--green--hover:  #262626;
+$color--grey--hover:   #262626;
+
+// owlcarousel
+$btn-owl-width:  40px;
+$btn-owl-height: 40px;

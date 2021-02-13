@@ -1,0 +1,123 @@
+.footer-social {
+    text-align: center;
+	list-style-image: none;
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+    width: 100%;
+
+    li {
+        vertical-align: middle;
+        display: inline-block;
+        margin: 0 5px;
+
+        &:before {
+            content: initial;
+        }
+
+        img {
+            width: 38px;
+        }
+
+        & a {
+            text-align: center;
+            transition: all .3s linear 0s;
+        }
+
+        & a:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.header__social {
+    display: inline-block;
+    list-style-image: none;
+    list-style: none;
+    margin: 0 0 0 30px;
+    padding: 0;
+
+    li {
+        display: inline-block;
+        margin: 0 5px;
+
+        &:before {
+            content: initial;
+        }
+
+        & a {
+            text-align: center;
+            transition: all .3s linear 0s;
+        }
+
+        & a:hover {
+            opacity: 0.8;
+        }
+    }
+}
+.socia-share-buttons {
+
+    ul {
+        list-style-image: none;
+        list-style: none;
+        margin: 20px 0 0;
+        padding: 0;
+    }
+
+    li {
+        list-style-image: none;
+        list-style: none;
+        display: inline-block;
+        margin: 5px 0;
+
+        &:before {
+            content: initial;
+        }
+
+        a {
+            color: #fff;
+            cursor: pointer;
+            display: block;
+            font-size: 16px;
+            line-height: 26px;
+            text-align: center;
+            text-decoration: none;
+            height: 26px;
+            width: 26px;
+            border: none;
+            border-radius: 2px;
+            transition: all .3s linear 0;
+        }
+
+        & a:hover {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+    }
+
+    .sh-facebook {
+        background-color: #3b5998;
+    }
+    .sh-twitter {
+        background-color: #00aced;
+    }
+    .sh-vkontakte {
+        background-color: #48729e;
+    }
+    .sh-googleplus {
+        background-color: #dc4e41;
+    }
+    .sh-odnoklassniki {
+        background-color: #eb722e;
+    }
+    .sh-viber {
+        background-color: #7b519d;
+    }
+    .sh-whatsapp {
+        background-color: #65bc54;
+    }
+    .sh-telegram {
+        background-color: #00aced;
+    }
+}

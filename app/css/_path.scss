@@ -1,0 +1,58 @@
+.path {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: $global-font-size;
+    font-weight: $global-font-weight;
+    color: $path-link-color;
+    text-align: center;
+    width: 100%;
+
+    a {
+        color: $path-link-color;
+        font-size: $global-font-size;
+        font-weight: $global-font-weight;
+        text-decoration: none;
+    }
+
+    & a:hover {
+        color: $path-link-hover;
+        text-decoration: underline;
+    }
+    
+    ul {
+        display: inline-block;
+        list-style-image: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        li {
+            display: inline-block;
+            list-style-image: none;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            a {
+                color: $path-link-color;
+                font-size: $global-font-size;
+                font-weight: $global-font-weight;
+                text-decoration: none;
+            }
+            
+            & a:hover {
+                color: $path-link-hover;
+                text-decoration: underline;
+            }
+
+            &:visited {
+                color: $path-link-color;
+                font-size: $global-font-size;
+                font-weight: $global-font-weight;
+                text-decoration: none;
+            }
+                
+        }
+    }
+}

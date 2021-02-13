@@ -1,0 +1,31 @@
+<div class="cd-dropdown-wrapper">
+	<nav class="cd-dropdown" id="responsive">
+		<div class="tite-dropdown"><span><!--{#RESP_MENU_MAIN#}--></span></div>
+		<a class="cd-close">Закрыть</a>
+		<ul class="cd-dropdown-content">
+			<!--{section name=i loop=$MMenu}-->
+				<!--{if $MMenu[i].smenu}-->
+				<li class="has-children categories">
+					<a><!--{$MMenu[i].name}--></a>
+				<!--{else}-->
+				<li class="categories">
+					<a href="<!--{$MMenu[i].sysname}-->" title="<!--{$MMenu[i].name}-->"><!--{$MMenu[i].name}--></a>
+				<!--{/if}-->
+					<!--{if $MMenu[i].smenu}-->
+						<ul class="cd-dropdown-icons is-hidden">
+							<li class="go-back"><a>Назад в меню</a></li>
+							<li>
+								<a href="<!--{$MMenu[i].sysname}-->" title="<!--{$MMenu[i].name}-->">
+									<!--{$MMenu[i].name}-->
+								</a>
+							</li>
+							<!--{section name=j loop=$MMenu[i].smenu}-->
+								<li><a href="<!--{$MMenu[i].smenu[j].sysname}-->" title="<!--{$MMenu[i].smenu[j].name}-->"><!--{$MMenu[i].smenu[j].name}--></a></li>
+							<!--{/section}-->
+						</ul>
+					<!--{/if}-->
+				</li>			
+			<!--{/section}-->
+		</ul>
+	</nav>
+</div>

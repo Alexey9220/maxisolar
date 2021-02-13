@@ -1,0 +1,23 @@
+<div class="pagination light-theme simple-pagination">
+<ul>
+    <!--{if $paginal.first}-->
+        <li class="hidden-xs">
+            <a class="page-current" href="<!--{$first_page_category}-->" title="<!--{#L_FIRST_PAGE#}-->"><!--{#L_FIRST_PAGE#}--></a>
+        </li>
+    <!--{/if}-->
+
+    <!--{section name=i loop=$paginal.list}-->
+        <!--{if $paginal.list[i].c == 0}-->
+            <li><a href="<!--{if $paginal.list[i].link_main}--><!--{$paginal.list[i].link_main}--><!--{else}--><!--{$paginal_base}--><!--{$paginal.list[i].pagination}--><!--{/if}-->" title="Перейти на <!--{$paginal.list[i].pagination}--> страницу"><!--{$paginal.list[i].pagination}--></a></li>
+        <!--{else}-->
+            <li><span class="current"><!--{$paginal.list[i].pagination}--></span></li>
+        <!--{/if}-->
+    <!--{/section}-->
+
+    <!--{if $paginal.last}-->
+        <li class="hidden-xs">
+            <a class="page-current" href="<!--{$paginal_base}--><!--{$paginal.last}-->" title="<!--{#L_LAST_PAGE#}-->"><!--{#L_LAST_PAGE#}--></a>
+        </li>
+    <!--{/if}-->
+</ul>
+</div>
