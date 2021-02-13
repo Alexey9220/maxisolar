@@ -22,7 +22,7 @@
                     <li><div><span>4</span></div> <strong>Договор</strong> Согласование и заключение договора с клиентом</li>
                     <li><div><span>5</span></div> <strong>Проект</strong> Разработка проекта и технической документации</li>
                     <li><div><span>6</span></div> <strong>Монтаж</strong> Выполняем монтажные работы и подключение</li>
-                    <li><div><span>7</span></div> <strong>Зеленый тариф</strong> Подключаем <a href="/zelenyi-tarif.htm" title="Зеленый тариф">Зеленый тариф</a>, передаем пакет документации</li>
+                    <li><div><span>7</span></div> <strong>Зеленый тариф</strong> Подключаем <a href="<!--{$global_href}-->zelenyi-tarif.htm" title="Зеленый тариф">Зеленый тариф</a>, передаем пакет документации</li>
                     <li><div><span>8</span></div> <strong>Обслуживание</strong> Дальнейшее сервисное и гарантийное обслуживание</li>
                 </ul>
             </div>
@@ -31,12 +31,20 @@
         <div class="row">
 			<div class="col-lg-12 grew__backround center wow fadeInRightBig" data-wow-duration="2s" data-wow-delay="1s">
 				<ul class="footer-social">	
-					<li>Остались вопросы? Напиши нам в мессенджер: </li>
-					<li><a class="facebook" title="Facebook" target="_blank" href="https://www.facebook.com/"><img src="<!--{$SITE__TEMPLATE}-->/images/social_icon/facebook.svg"></a></li>
-					<li><a class="instagram" title="Instagram" target="_blank" href="https://www.instagram.com/"><img src="<!--{$SITE__TEMPLATE}-->/images/social_icon/instagram.svg"></a></li>
-					<li class="hidden-xs"><a href="viber://chat?number=+380974247922" class="viber" title="Viber" target="_blank"><img src="<!--{$SITE__TEMPLATE}-->/images/social_icon/viber.svg"></a></li>
-					<li class="visible-xs-inline-block"><a href="viber://add?number=380974247922" class="viber" title="Viber" target="_blank"><img src="<!--{$SITE__TEMPLATE}-->/images/social_icon/viber.svg"></a></li>				
-					<li><a href="https://t.me/maxisolar" class="telegram" title="Telegram" target="_blank"><img src="<!--{$SITE__TEMPLATE}-->/images/social_icon/telegram.svg"></a></li>
+					<li><!--{$Parameters.support_footer_text}--> </li>
+					<!--{if $Parameters.fb_link}-->
+                    <li><a title="Facebook" target="_blank" href="<!--{$Parameters.fb_link}-->"><img width="24px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/facebook.svg"></a></li>
+                    <!--{/if}-->
+                    <!--{if $Parameters.inst_link}-->
+                    <li><a title="Instagram" target="_blank" href="<!--{$Parameters.inst_link}-->"><img width="24px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/instagram.svg"></a></li>
+                    <!--{/if}-->
+                    <!--{if $Parameters.viber_link}-->
+                    <li><a href="viber://chat?number=+<!--{$Parameters.viber_link}-->" title="Viber" target="_blank"><img width="24px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/viber.svg"></a></li>
+                    <li class="visible-xs-inline-block"><a href="viber://add?number=<!--{$Parameters.viber_link}-->" title="Viber" target="_blank"><img width="24px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/viber.svg"></a></li>				
+                    <!--{/if}-->
+                    <!--{if $Parameters.tgme_link}-->
+                    <li><a href="https://t.me/<!--{$Parameters.tgme_link}-->" title="Telegram" target="_blank"><img width="24px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/telegram.svg"></a></li>
+                    <!--{/if}-->
 				</ul>
 			</div>
 		</div>

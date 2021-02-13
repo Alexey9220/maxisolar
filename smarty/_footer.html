@@ -2,34 +2,34 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-				<p class="title__information">О компании</p>
+				<p class="title__information"><!--{$Parameters.f_company}--></p>
 				<div class="footer__menu">
 					<ul>
-						<li>- <a href="/about.html" title="О компании">О компании</a></li>
-						<li>- <a href="/zelenyi-tarif.htm" title="Зеленый тариф">Зеленый тариф</a></li>
-						<li>- <a href="/projects.html" title="Наши проекты">Наши проекты</a></li>
-						<li>- <a href="/" title="/">Вопрос / ответ</a></li>
-						<li>- <a href="/contacts.html" title="Контакты">Контакты</a></li>
+						<!--{section name=i loop=$Menu2}-->
+							<li>- <a href="<!--{$Menu2[i].sysname}-->" title="<!--{$Menu2[i].name}-->"><!--{$MMenu[i].name}--></a></li>
+						<!--{/section}-->
 					</ul>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-				<p class="title__information">Наши услуги</p>
+				<p class="title__information"><!--{$Parameters.f_usugi}--></p>
 				<div class="footer__menu">
 					<ul>
-						<li>- <a href="/" title="/">Частные солнечные электростанции</a></li>
-						<li>- <a href="/" title="/">Коммерческие солнечные электростанции</a></li>
-						<li>- <a href="/" title="/">Системы автономного и резервного электроснабжения</a></li>
-						<li>- <a href="/" title="/">Электромонтажные работы</a></li>
-						<li>- <a href="/" title="/">Сервис и обслуживание</a></li>
+						<!--{section name=i loop=$MMenu}-->
+							<!--{section name=j loop=$MMenu[i].smenu}-->
+								<!--{if $MMenu[i].smenu[j].mid == '130'}-->
+								<li>- <a href="<!--{$MMenu[i].smenu[j].sysname}-->" title="<!--{$MMenu[i].smenu[j].name}-->"><!--{$MMenu[i].smenu[j].name}--></a></li>
+								<!--{/if}-->
+							<!--{/section}-->
+						<!--{/section}-->	
 					</ul>	
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-				<p class="title__information">Контактная информация</p>
+				<p class="title__information"><!--{$Parameters.f_conacts}--></p>
 				<p class="information"><span class="lnr lnr-map-marker"></span> <!--{$Parameters.contacts}--></p>		
-				<p class="information"><span class="lnr lnr-phone-handset"></span> Менеджер:  <a title="Позвонить" href="tel:<!--{$Parameters.link_tel1_href}-->"><!--{$Parameters.tels1}--></a></p>
-				<p class="information"><span class="lnr lnr-phone-handset"></span> Консультация:  <a title="Позвонить" href="tel:<!--{$Parameters.link_tel2_href}-->"><!--{$Parameters.tels2}--></a></p>				
+				<p class="information"><span class="lnr lnr-phone-handset"></span> <!--{$Parameters.footer_admin}--> <a title="Позвонить" href="tel:<!--{$Parameters.link_tel1_href}-->"><!--{$Parameters.tels1}--></a></p>
+				<p class="information"><span class="lnr lnr-phone-handset"></span> <!--{$Parameters.footer_bron}--> <a title="Позвонить" href="tel:<!--{$Parameters.link_tel2_href}-->"><!--{$Parameters.tels2}--></a></p>				
 				<p class="information"><span class="lnr lnr-bullhorn"></span> <a data-reveal-id="zvonok" title="<!--{$Parameters.clback_tx}-->"><!--{$Parameters.clback_tx}--></a></p>
 				<p class="information"><span class="lnr lnr-envelope"></span> <a href="mailto:<!--{$Parameters.site_email}-->"><!--{$Parameters.site_email}--></a></p>
 			</div>
@@ -37,16 +37,24 @@
 		<div class="row">
 			<div class="col-lg-12 center">
 				<ul class="footer-social">	
-					<li>Задайте вопрос в мессенджере: </li>
-					<li><a class="facebook" title="Facebook" target="_blank" href="https://www.facebook.com/"><img src="<!--{$SITE__TEMPLATE}-->/images/social_icon/facebook.svg"></a></li>
-					<li><a class="instagram" title="Instagram" target="_blank" href="https://www.instagram.com/"><img src="<!--{$SITE__TEMPLATE}-->/images/social_icon/instagram.svg"></a></li>
-					<li class="hidden-xs"><a href="viber://chat?number=+380974247922" class="viber" title="Viber" target="_blank"><img src="<!--{$SITE__TEMPLATE}-->/images/social_icon/viber.svg"></a></li>
-					<li class="visible-xs-inline-block"><a href="viber://add?number=380974247922" class="viber" title="Viber" target="_blank"><img src="<!--{$SITE__TEMPLATE}-->/images/social_icon/viber.svg"></a></li>				
-					<li><a href="https://t.me/maxisolar" class="telegram" title="Telegram" target="_blank"><img src="<!--{$SITE__TEMPLATE}-->/images/social_icon/telegram.svg"></a></li>
+					<li><!--{$Parameters.support_footer_text}--> </li>
+					<!--{if $Parameters.fb_link}-->
+                    <li><a title="Facebook" target="_blank" href="<!--{$Parameters.fb_link}-->"><img width="24px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/facebook.svg"></a></li>
+                    <!--{/if}-->
+                    <!--{if $Parameters.inst_link}-->
+                    <li><a title="Instagram" target="_blank" href="<!--{$Parameters.inst_link}-->"><img width="24px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/instagram.svg"></a></li>
+                    <!--{/if}-->
+                    <!--{if $Parameters.viber_link}-->
+                    <li><a href="viber://chat?number=+<!--{$Parameters.viber_link}-->" title="Viber" target="_blank"><img width="24px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/viber.svg"></a></li>
+                    <li class="visible-xs-inline-block"><a href="viber://add?number=<!--{$Parameters.viber_link}-->" title="Viber" target="_blank"><img width="24px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/viber.svg"></a></li>				
+                    <!--{/if}-->
+                    <!--{if $Parameters.tgme_link}-->
+                    <li><a href="https://t.me/<!--{$Parameters.tgme_link}-->" title="Telegram" target="_blank"><img width="24px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/telegram.svg"></a></li>
+                    <!--{/if}-->
 				</ul>
-				<div class="copyright">© 2020, Компания «Maxisolar». Все права защищены</div>
-				<div class="privacy"><a title="Политика конфиденциальности" href="/privacy-policy.htm">Политика конфиденциальности</a></div>
-				<div class="develop">Разработка сайта: <a title="Разработка сайта" href="https://prospect-it.com.ua/" target="_blank">Prospect IT</a></div>
+				<div class="copyright"><!--{$Parameters.copyrate}--></div>
+				<div class="privacy"><a title="<!--{#CONF_PRIVACY#}-->" href="<!--{$lng_href1}-->/privacy-policy.htm"><!--{#CONF_PRIVACY#}--></a></div>
+				<div class="develop"><!--{#FOOTER_WEB_DEW#}-->: <a href="https://prospect-it.com.ua/" title="<!--{#FOOTER_WEB_DEW#}-->" target="_blank">Prospect IT</a></div>
 			</div>
 		</div>
 	</div>
