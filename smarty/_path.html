@@ -3,13 +3,41 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="section__title">
-					<div class="title">Контактная информация</div>
+					<div class="title"><!--{$path_title}--></div>
 					<div class="section__separator">
-						<p>Будем рады нашему сотрудничеству!</p>
+						<p><!--{$Parameters.logo_company}--></p>
 					</div>
                 </div>
                 <div class="path">
-                    <span class="lnr lnr-home"></span> <a href="/" title="Главная">Главная</a> › Контакты
+                   	<!--{if $way}-->
+					<ul id="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+						<!--{section name=i loop=$way}-->
+							<!--{if $smarty.section.i.first}-->
+							<li class="shema_ORG_i" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+								<span class="lnr lnr-home"></span> <a href="<!--{$way[i].waybackurl}-->" title="<!--{$way[i].waybackname}-->" itemprop="item">
+								<meta itemprop="position" content="1">
+								<span itemprop="name"><!--{$way[i].waybackname}--></span></a> <span>&rsaquo;</span>
+							</li>
+							<!--{else}-->
+							<li class="shema_ORG_b" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+								<a href="<!--{$way[i].waybackurl}-->" title="<!--{$way[i].waybackname}-->" itemprop="item">
+								<meta itemprop="position" content="2">
+								<span itemprop="name"><!--{$way[i].waybackname}--></span></a> <span>&rsaquo;</span>
+							</li>
+							<!--{/if}-->
+						<!--{/section}-->
+
+						<!--{if $o}-->
+							<li>
+								<span><!--{$o.name}--></span>
+							</li>
+						<!--{else}-->
+							<li>
+								<span><!--{$way[$waylast].name}--></span>
+							</li>
+						<!--{/if}-->
+						</ul>
+					<!--{/if}-->
                 </div>
 			</div>
 		</div>
