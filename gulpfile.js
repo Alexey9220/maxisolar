@@ -30,7 +30,8 @@ var path = {
         img: 'app/images/**/*.*',
         fonts: 'app/fonts/**/*.*',
         favicon: 'app/favicon/**/*.*',
-        smarty: 'app/template/*.html'
+        //smarty: 'app/template/*.html'
+        smarty:  'app/*.html'
     },
     watch: {
         html: 'app/*.html',
@@ -146,11 +147,10 @@ gulp.task('fonts:build', function(done) {
     done();
 });
 
-// html в папку smarty
+// html в папку smarty - пишем все шаблоны в папку
 gulp.task('smarty:build',function(done){
     return gulp.src([
       path.app.smarty,
-      './app/index.html'
       ]).pipe(gulp.dest(path.template.smarty));
 
       /* игнорирование файлов */
