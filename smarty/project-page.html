@@ -1,42 +1,45 @@
 
-//= template/_seo.html
+<!--{include file="_seo.html"}-->
 
 <body>
 
 <!-- Header Start-->
-    //= template/_header.html
+    <!--{include file="_header.html"}-->
 
 <!-- Breadcrumbs-->
-<div class="breadcrumbs__backround wrapper">
-    <div class="container-full">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="section__title">
-					<div class="title">Реализованные проекты</div>
-					<div class="section__separator">
-						<p>Будем рады нашему сотрудничеству!</p>
-					</div>
+    <div class="breadcrumbs__backround wrapper">
+        <div class="container-full">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section__title">
+                        <div class="title"><!--{$Parameters.projects_title}--></div>
+                        <div class="section__separator">
+                            <p><!--{$Parameters.projects_titledpn}--></p>
+                        </div>
+                    </div>
+                    <div class="path">
+                        <!--{if $way_project.pro_page}-->
+                                <span class="lnr lnr-home"></span> <a href="<!--{$way_project.waybackurl}-->" title="<!--{$way_project.waybackname}-->"><!--{$way_project.waybackname}--></a> 
+                                &rsaquo; 
+                            <a href="<!--{$way_project.name_path_href}-->" title="<!--{$way_project.name}-->"><!--{$way_project.name}--></a> 
+                                &rsaquo;
+                                <!--{$way_project.project_path_name}-->
+                        <!--{else}-->
+                            <!--{if $way.pro_list}-->
+                                <a href="<!--{$way.waybackurl}-->" title="<!--{$way.waybackname}-->"><!--{$way.waybackname}--></a> 
+                                    &rsaquo; 
+                                <!--{if $way.name_path}-->
+                                    <!--{$way.name_path}-->
+                                <!--{else}-->
+                                    <!--{$way.name}-->
+                                <!--{/if}-->
+                            <!--{/if}-->
+                        <!--{/if}-->
+                    </div>
                 </div>
-                <div class="path">
-                    <ul id="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">	
-                        <li class="shema_ORG_pvi" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                            <span class="lnr lnr-home"></span> <a href="/" title="Главная" itemprop="item"><span itemprop="name">Главная</span></a> ›
-                            <meta itemprop="position" content="1">
-                        </li>
-                        <li class="shema_ORG_pvb" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                            <a href="/projects.html" title="Наши проекты" itemprop="item"><span itemprop="name">Наши проекты</span></a> ›
-                            <meta itemprop="position" content="2">
-                        </li>
-                        <li class="shema_ORG_pvc" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                            <span itemprop="item"><span itemprop="name">Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл.</span></span>
-                            <meta itemprop="position" content="3">
-                        </li>
-                    </ul>
-                </div>
-			</div>
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
 
 <!-- Content Start-->
     <article>
@@ -45,9 +48,10 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section__title">
-                            <h1>Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл.</h1>
+                            <h1><!--{$list[0].name}--></h1>
                             <div class="section__separator">
-                                <p>Компания «Maxisolar» выполнила комплекс работ по проектированию, поставке оборудования, монтажным и пусконаладочным работам сетевой солнечной электростанции в селе Братское</p>
+                                <p><!--{$list[0].short_dpn}--></p>
+                                <p><!--{$list[0].dpn}--></p>
                             </div>
                         </div>
                     </div>
@@ -56,11 +60,11 @@
                     <div class="col-md-7 col-lg-7">
                         <div class="col__project center">
                             <div class="col__project__link">
-                                <img src="/images/project-3.jpg" alt="Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл.">
+                                <img src="<!--{$list[0].img}-->" alt="<!--{$o.name}-->">
                                 <div class="col__project__layer"></div>
                                 <div class="col__project__link" style="margin-top: 32%;">
                                     <a 
-                                        href="/images/project-3.jpg" 
+                                        href="<!--{$list[0].img}-->" 
                                         class="project btn white-color b-large b-60" 
                                         rel="mainproject">
                                         <span class="lnr lnr-magnifier"></span> Смотреть все фото
@@ -68,39 +72,26 @@
                                 </div> 	
                             </div>
                         </div>
+                        <!--{if $list}-->
                         <div class="row relative">
                             <div id="owl__photos__projects">
+                                <!--{section name=i loop=$list}-->
+                                <!--{if $smarty.section.i.first}-->
+                                <!--{else}-->
                                 <div class="item">
-                                    <a class="project" rel="mainproject" title="/" href="/images/project-1.jpg">
-                                        <img alt="/" src="/images/project-1.jpg">
+                                    <a class="project" rel="mainproject" title="<!--{$o.name}-->" href="<!--{$list[i].img}-->">
+                                        <img alt="<!--{$o.name}-->" src="<!--{$list[i].img}-->">
                                     </a>
                                 </div>
-                                <div class="item ">
-                                    <a class="project" rel="mainproject" title="/" href="/images/project-2.jpg">
-                                        <img alt="/" src="/images/project-2.jpg">
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a class="project" rel="mainproject" title="/" href="/images/project-3.jpg">
-                                        <img alt="/" src="/images/project-3.jpg">
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a class="project" rel="mainproject" title="/" href="/images/project-4.jpg">
-                                        <img alt="/" src="/images/project-4.jpg">
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a class="project" rel="mainproject" title="/" href="/images/project-5.jpg">
-                                        <img alt="/" src="/images/project-5.jpg">
-                                    </a>
-                                </div>
+                                <!--{/if}--> 
+					            <!--{/section}-->
                             </div>
                             <div class="owl__slider__controls">
                                 <div class="slider_arrow slider_arrow_left"><span class="lnr lnr-chevron-left"></span></div>
                                 <div class="slider_arrow slider_arrow_right"><span class="lnr lnr-chevron-right"></span></div>
                             </div>
                         </div>
+                        <!--{/if}--> 
                     </div>
                     <div 
                         class="ol-md-5 col-lg-5 wow fadeInRightBig" 
@@ -108,27 +99,31 @@
                         data-wow-delay=".2s">
                         <div class="grey__backround padding__lr__40">
                             <div class="dpn__project">
-                                <span class="youtube__video"><span class="lnr lnr-film-play"></span> Видео - обзор</span>
+                                <span href="<!--{$list[0].video}-->" class="cd-mvideo youtube__video"><span class="lnr lnr-film-play"></span> Видео - обзор</span>
+                                <!--{if $list[0].green_tarif == 1}-->
                                 <span class="green__tariff"><span class="lnr lnr-leaf"></span> «Зеленый» тариф</span>
+                                <!--{/if}-->
                             </div>
+                            <!--{if $list[0].green_tarif == 1}-->
                             <div class="dpn__project">
                                 <div>Оформлен «Зеленый» тариф</div>
                             </div>
+                            <!--{/if}-->
                             <div class="dpn__project">
                                 <strong>Ввод в эксплуатацию:</strong>
-                                <div>Октябрь 2020</div>
+                                <div><!--{$list[0].expluatation}--></div>
                             </div>
                             <div class="dpn__project">
                                 <strong>Месторасположение:</strong>
-                                <div>Днепр обл. с. Куриловка.</div>
+                                <div><!--{$list[0].location}--></div>
                             </div>
                             <div class="dpn__project">
                                 <strong>Солнечные батареи:</strong>
-                                <div>JA SOLAR JAM60S10-340/MR 340 WP, MONO</div>
+                                <div><!--{$list[0].batery}--></div>
                             </div>
                             <div class="dpn__project">
                                 <strong>Сетевой инвертор:</strong>
-                                <div>Solis-30K-5G-DC</div>
+                                <div><!--{$list[0].invertor}--></div>
                             </div>
                             <div class="line__stripped"></div>
                             <div class="promo__project wow fadeInRightBig center"
@@ -158,12 +153,10 @@
                         <div class="section__title">
                             <h2>Особенности проекта</h2>
                             <div class="section__separator">
-                                <p>Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл.</p>
+                                <p><!--{$list[0].name}--></p>
                             </div>
                         </div>   
-                        <p>Компания «Maxisolar» выполнила комплекс работ по проектированию, поставке оборудования, монтажным и пусконаладочным работам и запустила поэтапно сетевую солнечную электростанцию в пгт. Аулы Днепропетровской области.</p>
-                        <p>В качестве основного оборудования для выработки электроэнергии были установлены ФЭМ фирмы Abi-Solar AB320-60M, фотомодули размещены на динамической наземной конструкции со сменным углом SMS-301, с использованием сетевого инвертора Solis-30K (30 кВт, 3 фазы / 4трекера) общая мощность станции была постепенно увеличена до 30 кВт.</p>
-                        <p>Оформлением документации по «Зеленому» тарифу занимался заказчик. Звоните, пишите, спрашивайте, приходите в наш офис, и мы поможем Вам стать владельцем красивой, надежной, качественной и прибыльной солнечной электростанции!</p>
+                        <!--{$list[0].text}-->
                     </div>
                 </div>
             </div>
@@ -173,9 +166,9 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section__title">
-                            <h3>Другие наши проекты</h3>
+                            <h3><!--{$Parameters.GS_similar_title}--></h3>
                             <div class="section__separator">
-                                <p>Ознакомьтесь с другими примерами наших проектов</p>
+                                <p><!--{$Parameters.GS_similar_descrp}--></p>
                             </div>
                         </div>
                     </div>
@@ -184,114 +177,26 @@
             <div class="container-full">
                 <div class="row relative">
                     <div id="owl__similar__projects">
+                        <!--{section name=i loop=$similar}-->
                         <div class="item center">
                             <div class="col__project">
                                 <div class="col__project__link">
-                                    <img src="/images/project-1.jpg" alt="Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл.">
+                                    <img src="<!--{$similar[i].img}-->" alt="<!--{$similar[i].name}-->">
                                     <div class="col__project__layer"></div>
                                     <div class="col__project__link">
-                                        <a class="btn white-color b-average b-90" href="/"><span class="lnr lnr-link"></span> Подробнее</a>
-                                        <a data-reveal-id="findprice" class="btn orange-color b-average b-90" href="/">Узнать стоимость</a>
+                                        <a class="btn white-color b-average b-90" title="<!--{$Parameters.get_more}-->" href="<!--{$similar[i].href}-->"><span class="lnr lnr-link"></span> <!--{$Parameters.get_more}--></a>
+                                        <a data-reveal-id="findprice" class="btn orange-color b-average b-90" title="<!--{$Parameters.get_price}-->"><!--{$Parameters.get_price}--></a>
                                     </div>   
                                     <span class="col__project__tariff"><span class="lnr lnr-leaf"></span> Зеленый тариф</span>			
                                 </div>
                                 <div class="title">
-                                    <a href="/" title="Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл. ">Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл.</a>
-                                    <div class="description">Строительство сетевой солнечной электростанции 32 кВт. в Днепропетровской обл. с. Куриловка</div>
-                                    <div class="date">24 Ноября, 2020</div>
-                                </div>
-                            </div>
-                        </div>    
-                        <div class="item center">
-                            <div class="col__project">
-                                <div class="col__project__link">
-                                    <img src="/images/project-2.jpg" alt="Коммерческая сетевая СЭС 109 кВт. Запорожская обл.">
-                                    <div class="col__project__layer"></div>
-                                    <div class="col__project__link">
-                                        <a class="btn white-color b-average b-90" href="/"><span class="lnr lnr-link"></span> Подробнее</a>
-                                        <a data-reveal-id="findprice" class="btn orange-color b-average b-90" href="/">Узнать стоимость</a>
-                                    </div>   
-                                    <span class="col__project__tariff"><span class="lnr lnr-leaf"></span> Зеленый тариф</span>			
-                                </div>
-                                <div class="title">
-                                    <a href="/" title="Коммерческая сетевая СЭС 109 кВт. Запорожская обл.">Коммерческая сетевая СЭС 109 кВт. Запорожская обл.</a>
-                                    <div class="description">Строительство коммерческой солнечной электростанции в Запорожская области</div>
-                                    <div class="date">10 Ноября, 2020</div>
-                                </div>
-                            </div>
-                        </div>    
-                        <div class="item center">
-                            <div class="col__project">
-                                <div class="col__project__link">
-                                    <img src="/images/project-3.jpg" alt="Сетевая СЭС 30 кВт, г. Полтава">
-                                    <div class="col__project__layer"></div>
-                                    <div class="col__project__link">
-                                        <a class="btn white-color b-average b-90" href="/"><span class="lnr lnr-link"></span> Подробнее</a>
-                                        <a data-reveal-id="findprice" class="btn orange-color b-average b-90" href="/">Узнать стоимость</a>
-                                    </div>   
-                                    <span class="col__project__tariff"><span class="lnr lnr-leaf"></span> Зеленый тариф</span>			
-                                </div>
-                                <div class="title">
-                                    <a href="/" title="Сетевая СЭС 30 кВт, г. Полтава">Сетевая СЭС 30 кВт, г. Полтава</a>
-                                    <div class="description">Строительство сетевой солнечной электростанции мощностью 30 кВт. в городе Полтава</div>
-                                    <div class="date">24 Ноября, 2020</div>
+                                    <a href="<!--{$similar[i].href}-->" title="<!--{$similar[i].name}-->"><!--{$similar[i].name}--></a>
+                                    <div class="description"><!--{$similar[i].short_dpn}--></div>
+                                    <div class="date"><!--{$similar[i].date}--></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="item center">
-                            <div class="col__project">
-                                <div class="col__project__link">
-                                    <img src="/images/project-1.jpg" alt="Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл.">
-                                    <div class="col__project__layer"></div>
-                                    <div class="col__project__link">
-                                        <a class="btn white-color b-average b-90" href="/"><span class="lnr lnr-link"></span> Подробнее</a>
-                                        <a data-reveal-id="findprice" class="btn orange-color b-average b-90" href="/">Узнать стоимость</a>
-                                    </div>   
-                                    <span class="col__project__tariff"><span class="lnr lnr-leaf"></span> Зеленый тариф</span>			
-                                </div>
-                                <div class="title">
-                                    <a href="/" title="Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл. ">Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл.</a>
-                                    <div class="description">Строительство сетевой солнечной электростанции 32 кВт. в Днепропетровской обл. с. Куриловка</div>
-                                    <div class="date">24 Ноября, 2020</div>
-                                </div>
-                            </div>
-                        </div>    
-                        <div class="item center">
-                            <div class="col__project">
-                                <div class="col__project__link">
-                                    <img src="/images/project-2.jpg" alt="Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл.">
-                                    <div class="col__project__layer"></div>
-                                    <div class="col__project__link">
-                                        <a class="btn white-color b-average b-90" href="/"><span class="lnr lnr-link"></span> Подробнее</a>
-                                        <a data-reveal-id="findprice" class="btn orange-color b-average b-90" href="/">Узнать стоимость</a>
-                                    </div>   
-                                    <span class="col__project__tariff"><span class="lnr lnr-leaf"></span> Зеленый тариф</span>			
-                                </div>
-                                <div class="title">
-                                    <a href="/" title="Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл. ">Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл.</a>
-                                    <div class="description">Строительство сетевой солнечной электростанции 32 кВт. в Днепропетровской обл. с. Куриловка</div>
-                                    <div class="date">24 Ноября, 2020</div>
-                                </div>
-                            </div>
-                        </div>    
-                        <div class="item center">
-                            <div class="col__project">
-                                <div class="col__project__link">
-                                    <img src="/images/project-3.jpg" alt="Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл.">
-                                    <div class="col__project__layer"></div>
-                                    <div class="col__project__link">
-                                        <a class="btn white-color b-average b-90" href="/"><span class="lnr lnr-link"></span> Подробнее</a>
-                                        <a data-reveal-id="findprice" class="btn orange-color b-average b-90" href="/">Узнать стоимость</a>
-                                    </div>   
-                                    <span class="col__project__tariff"><span class="lnr lnr-leaf"></span> Зеленый тариф</span>			
-                                </div>
-                                <div class="title">
-                                    <a href="/" title="Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл. ">Сетевая СЭС 32 кВт, с. Куриловка, Днепр. обл.</a>
-                                    <div class="description">Строительство сетевой солнечной электростанции 32 кВт. в Днепропетровской обл. с. Куриловка</div>
-                                    <div class="date">24 Ноября, 2020</div>
-                                </div>
-                            </div>
-                        </div>
+                        <!--{/section}-->
                     </div>
                     <div class="owl__slider__controls">
                         <div class="slider_arrow slider_arrow_left"><span class="lnr lnr-chevron-left"></span></div>
@@ -303,10 +208,10 @@
     </article>
 
 <!-- Preimushestva Start-->
-    //= template/_advantages.html
+    <!--{include file="_advantages.html"}-->
 
 <!-- Footer Start-->
-    //= template/_footer.html
+    <!--{include file="_footer.html"}-->
 
 </body>
 </html>
