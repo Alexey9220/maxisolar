@@ -327,7 +327,7 @@ input, select {
     z-index: 10000;
     top: 0px;
     width: 100%;
-    padding: 10px 0;
+    padding: 5px 0;
     margin: 0px;
     background: $global-nav-fixed-bg;
 	animation: fixed_nav .95s forwards cubic-bezier(.4, 0, .2, 1);
@@ -374,7 +374,7 @@ input, select {
             display: inline-block;
             font-size: 16px;
             font-weight: 400;
-            padding: 5px 13px 5px 13px;
+            padding: 5px 15px 5px 15px;
             text-decoration: none;
             text-transform: none;
             transition: $btn--transition;
@@ -789,7 +789,6 @@ input, select {
         padding: 6px 22px;
         font-size: 14px;
         color: #fff;
-        margin-left: 10px;
     }
     
     .youtube__video {
@@ -798,7 +797,7 @@ input, select {
         padding: 6px 22px;
         font-size: 14px;
         color: #fff;
-        cursor: pointer;
+        margin-right: 10px;
 
         &:hover {
             opacity: 0.9;

@@ -1,5 +1,3 @@
-//= wow.js
-
 function header_fixed(e) {
     $(this).scrollTop() > e ? ($(".header__navigation").addClass("fixed"), $(".header-fixed").addClass("hidden"), $(".header-fixed").attr({
         style: "width:100%"
@@ -22,116 +20,203 @@ function scroll_up(e) {
     $(this).scrollTop() > e ? ($(".scrollup").fadeIn(), $(".scrollup").addClass("animation")) : ($(".scrollup").fadeOut(), $(".scrollup").removeClass("animation"))
 }
 
-function feedback(e, t, a) {
-    e.getElementsByClassName("indicator")[0].style.display = "block", e.getElementsByClassName("result")[0].innerHTML = "";
-    for (var i = e.getElementsByTagName("input"), n = [], o = e.getAttribute("name") + "_", r = 0, s = 0; s < i.length; s++) i[s].readOnly ? r += 1 : (n[s - r] = {
-        name: i[s].getAttribute("id"),
-        req: i[s].getAttribute("name"),
-        title: i[s].getAttribute("title"),
-        value: i[s].value
-    }, n[s - r].name = n[s - r].name.replace(o, ""), "tel" == i[s].getAttribute("type") && "" != n[s - r].value && (n[s - r].value = "+380" + n[s - r].value));
-    var l = i.length - r;
-    if ("NULL" != (i = e.getElementsByTagName("select")))
-        for (var d = 0; d < i.length; d++) n[d + l] = {
-            name: i[d].getAttribute("id"),
-            req: i[d].getAttribute("name"),
-            title: i[d].getAttribute("title"),
-            value: i[d].value
-        }, n[d + l].name = n[d + l].name.replace(o, "");
-    if ("NULL" != (i = e.getElementsByTagName("textarea")))
-        for (var c = 0; c < i.length; c++) n[c + l] = {
-            name: i[c].getAttribute("id"),
-            req: i[c].getAttribute("name"),
-            title: i[c].getAttribute("title"),
-            value: i[c].value
-        }, n[c + l].name = n[c + l].name.replace(o, "");
-    switch (a) {
-        case "/en/":
-            u = "2";
-            break;
-        case "/ru/":
-            u = "2";
-            break;
-        default:
-            var u = "3"
-    }
-    var m = validation(n, a);
-    if (1 == m && "boolean" == typeof m) {
-        var v = JSON.stringify(n);
-        if ("" != t) var p = [e, t, v, u],
-            g = "/feedback?form=" + e.getAttribute("name") + "&lng=" + u + "&itemname=" + t + "&action=db&r=" + Math.random();
-        else var p = [e, null, v, u],
-            g = "/feedback?form=" + e.getAttribute("name") + "&lng=" + u + "&action=db&r=" + Math.random();
-        $.ajax({
-            type: "POST",
-            url: g,
-            data: {
-                list: v
-            },
-            beforeSend: function(e) {},
-            complete: function() {},
-            success: function(e) {
-                newfeedback(e, p)
-            },
-            error: function(e, t, a) {}
-        })
-    } else e.getElementsByClassName("indicator")[0].style.display = "none", e.getElementsByClassName("result")[0].className = "occurred result", e.getElementsByClassName("result")[0].innerHTML = m;
-    return false
+var timerstart = new Date();
+
+function feedback(form, itemname, lang) {
+		
+	//form.getElementsByClassName('indicator')[0].style.display="block";
+	form.getElementsByClassName('result')[0].innerHTML = '';
+	
+	var list = form.getElementsByTagName('input');
+	var arrfb = [];
+	var prefix = form.getAttribute('name') + '_';
+	var iback = 0;
+	
+	for (var i = 0; i < list.length; i++) {
+		if (list[i].readOnly)
+		{
+			iback = iback + 1;
+		}
+		else
+		{
+			arrfb[i - iback] = {
+				name: list[i].getAttribute('id'),
+				req: list[i].getAttribute('name'),
+				title: list[i].getAttribute('title'),
+				value: list[i].value
+			}
+			arrfb[i - iback].name = arrfb[i - iback].name.replace(prefix, "");
+			if (list[i].getAttribute('type') == 'tel')
+			{
+				if (arrfb[i - iback].value != '') {
+					arrfb[i - iback].value = '+380' + arrfb[i - iback].value;
+				}
+			}
+		}
+	}
+	var listlength = list.length - iback;	
+	var list = form.getElementsByTagName('select');
+	if (list != 'NULL')
+	{
+		for (var k = 0; k < list.length; k++) { 
+			arrfb[k + listlength] = {
+				name: list[k].getAttribute('id'),
+				req: list[k].getAttribute('name'),
+				title: list[k].getAttribute('title'),
+				value: list[k].value
+			}
+			arrfb[k + listlength].name = arrfb[k + listlength].name.replace(prefix, "");
+		}	
+	}
+	var list = form.getElementsByTagName('textarea');
+	if (list != 'NULL')
+	{
+		for (var j = 0; j < list.length; j++) { 
+			arrfb[j + listlength] = {
+				name: list[j].getAttribute('id'),
+				req: list[j].getAttribute('name'),
+				title: list[j].getAttribute('title'),
+				value: list[j].value
+			}
+			arrfb[j + listlength].name = arrfb[j + listlength].name.replace(prefix, "");
+		}	
+	}
+	
+	switch(lang) {
+	  case '/en/': {
+		var lng_param = '2';
+		break;
+	  }
+	  case '/ua/': {
+		var lng_param = '3';
+		break;
+	  }
+	  default: {
+		var lng_param = '';
+	  }
+	}	
+	
+	var validated = validation(arrfb,lang);
+	
+	if (validated == true && typeof validated == 'boolean') {
+		
+		var str = JSON.stringify(arrfb);
+		
+		if (itemname != '') {
+			var param = [form, itemname, str, lng_param];
+			var url = '/feedback?form=' + form.getAttribute('name') + '&lng='+ lng_param + '&itemname=' + itemname + '&action=db' + '&r=' + Math.random();
+		} else {
+			var param = [form, null, str, lng_param];
+			var url = '/feedback?form=' + form.getAttribute('name') + '&lng='+ lng_param + '&action=db' + '&r=' + Math.random();
+		}
+
+		$.ajax({
+			type: 'POST',
+			url: url,
+			data: {"list": str},
+			beforeSend: function(data) {
+			},			
+			complete: function() {
+			},
+			success: function (data) {
+				newfeedback(data, param);
+			},
+			error: function (xhr, ajaxOptions, thrownError) { 
+			}
+		});
+	} else {
+		//form.getElementsByClassName('indicator')[0].style.display="none";
+		form.getElementsByClassName('result')[0].className = 'occurred result';
+		form.getElementsByClassName('result')[0].innerHTML = validated;		
+	}
+	return true;
 }
 
-function newfeedback(e, t) {
-    var a = $.parseJSON(e);
-    if ("false" != a.result) {
-        if (t[0].getElementsByClassName("indicator")[0].style.display = "none", t[0].getElementsByClassName("result")[0].className = "success result", t[0].getElementsByClassName("result")[0].innerHTML = a.message, t[0].reset(), null === t[1]) i = "/feedback?form=" + t[0].getAttribute("name") + "&lng=" + t[3] + "&action=mail&r=" + Math.random();
-        else var i = "/feedback?form=" + t[0].getAttribute("name") + "&lng=" + t[3] + "&itemname=" + t[1] + "&action=mail&r=" + Math.random();
-        $.ajax({
-            type: "POST",
-            url: i,
-            data: {
-                list: t[2]
-            },
-            success: function(e) {},
-            error: function(e, t, a) {}
-        })
-    } else t[0].getElementsByClassName("indicator")[0].style.display = "none", t[0].getElementsByClassName("result")[0].className = "errormodal result", t[0].getElementsByClassName("result")[0].innerHTML = a.message
+function newfeedback(data, param) {
+
+	var result = $.parseJSON(data);
+	
+	if (result['result'] != 'false') {
+		//param[0].getElementsByClassName('indicator')[0].style.display="none";
+		param[0].getElementsByClassName('result')[0].className = 'success result';
+		param[0].getElementsByClassName('result')[0].innerHTML = result['message'];
+		param[0].reset();
+		
+		if (param[1] === null) {
+			var url_mail = '/feedback?form=' + param[0].getAttribute('name') + '&lng='+ param[3] +  '&action=mail' + '&r=' + Math.random();
+		} else {
+			var url_mail = '/feedback?form=' + param[0].getAttribute('name') + '&lng='+ param[3] +  '&itemname=' + param[1] + '&action=mail' + '&r=' + Math.random();      
+		}
+		
+		$.ajax({
+			type: 'POST',
+			url: url_mail,
+			data: {"list": param[2]},
+			success: function (data) {},
+			error: function (xhr, ajaxOptions, thrownError) { 
+			}
+		});
+	} else {	
+		//param[0].getElementsByClassName('indicator')[0].style.display="none";
+		param[0].getElementsByClassName('result')[0].className = 'occurred result';
+		param[0].getElementsByClassName('result')[0].innerHTML = result['message'];
+	}
 }
 
-function validation(e, t) {
-    switch (t) {
-		case "/en/":
-            var a = "Attention! Field ",
-                i = " not indicated!",
-                n = "Enter a valid E-mail address";
-            break;
-        case "/ru/":
-            var a = "Поле ",
-                i = " не заполнено!",
-                n = "Укажите правильный E-mail";
-            break;
-        default:
-            var a = "Поле ",
-                i = " не вказано!",
-                n = "Вкажіть правильний E-mail"
-    }
-    if (new Date - timerstart < 1e3) return timerstart = new Date, "Error in Page!";
-    for (var o = 0; o < e.length; o++) {
-        if ("required" == e[o].req && "" == e[o].value) return a + e[o].title + i;
-        if ("required" == e[o].req && "email" == e[o].name && !validateEmail(e[o].value)) return n
-    }
-    return false
+function validation(arrfb,lang) {
+	
+	switch(lang) {
+	  case '/en/': {
+		var input_sp = 'Attention! Field ';
+		var error_type = ' not indicated!';
+		var vemail = 'Enter a valid E-mail address';
+		break;
+	  }
+	  case '/ua/': {
+		var input_sp = 'Поле ';
+		var error_type = ' не вказано!';
+		var vemail = 'Вкажіть правильний E-mail';
+		break;
+	  }
+	  default: {
+		var input_sp = 'Поле '
+		var error_type = ' не заполнено!';
+		var vemail = 'Укажите правильный E-mail';
+	  }
+	}
+	
+	var timerend = new Date();
+	
+	if (timerend - timerstart < 1000) {
+		timerstart = new Date();
+		return 'Error in Page!';
+	} else {
+		for (var i = 0; i < arrfb.length; i++) { 
+			if (arrfb[i].req == 'required' && arrfb[i].value == '')
+			{
+				return input_sp + arrfb[i].title + error_type;	
+			}
+			if (arrfb[i].req == 'required' && arrfb[i].name == 'email' && !validateEmail(arrfb[i].value))
+			{
+				return vemail;		
+			}
+		}
+		return true;
+	}	
 }
 
-function validateEmail(e) {
-    return /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i.test(e)
+function validateEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
 }
 
 $(document).ready(function() {
         
         var e = window.innerWidth;
         
-        $('#contacts_phone').mask('+38(999) 999-99-99');
         $('#calls_tel').mask('+38(999) 999-99-99');
-        $('#price_tel').mask('+38(999) 999-99-99');
+        $('#contacts_phone').mask('+38(999) 999-99-99');
+        $('#costings_tel').mask('+38(999) 999-99-99');
         
         $('.scrollup').click(function(){ $("html, body").animate({ scrollTop: 0 }, 600); return false; }),
 
