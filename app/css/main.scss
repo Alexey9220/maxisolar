@@ -249,7 +249,7 @@ input, select {
     background: #f2f1f1;
 }
 .header__navigation {
-    padding: 10px 0;
+    padding: 15px;
     background: #fff;
 }
 .header__contacts {
@@ -260,7 +260,7 @@ input, select {
     margin: 0;
 
     li {
-        margin: 0 20px 0 0;
+        margin: 0 10px 0 0;
         padding: 0px;
         display: inline-block;
         vertical-align: middle;
@@ -281,7 +281,6 @@ input, select {
         margin: 0;
     }
 }
-
 .header__language {
     float: right;
     list-style-image: none;
@@ -322,129 +321,18 @@ input, select {
     }
 
 }
-.header__navigation.fixed {
-    position: fixed;
-    z-index: 10000;
-    top: 0px;
-    width: 100%;
-    padding: 5px 0;
-    margin: 0px;
-    background: $global-nav-fixed-bg;
-	animation: fixed_nav .95s forwards cubic-bezier(.4, 0, .2, 1);
-    box-shadow: $global-box-shadow-45;
+.logo {
+    float: left;
 
-    .header {
-        padding: 0px;
-    }
-
-    .logo img {
-        width: 85%;
-    }
-
-    .navigation {
-        margin: 10px 0 0px;
-    }
-
-    .header__button {
-        margin-top: 8px;
-    }
-
-    .b-small {
-        padding: 10px 14px;
+    img {
+        width: 180px;
     }
 }
-.navigation {
-    position: relative;
-    margin: 20px 0 0px;
-    text-align: center;
-
-    ul {
-        list-style-image: none;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    li {
-        display: inline-block;
-        position: relative;
-
-        a {
-            color: $global-text-color;
-            display: inline-block;
-            font-size: 16px;
-            font-weight: 400;
-            padding: 5px 15px 5px 15px;
-            text-decoration: none;
-            text-transform: none;
-            transition: $btn--transition;
-
-            .lnr {
-                font-size: 11px;
-                font-weight: 800;
-            }
-        }
-
-        a:hover {
-            color: $color--orange;
-            text-decoration: none;
-        }
-
-        ul {
-            background: #fff;
-            left: -9999px;
-            margin: 0;
-            padding: 10px 20px;
-            position: absolute;
-            text-align: left;
-            z-index: 100;
-            box-shadow: $global-box-shadow-45;
-            opacity: 0;
-
-            li {
-                border: none;
-                display: block;
-                float: none;
-                margin: 5px 0;
-                padding: 0px;
-
-                a {
-                    color: $global-text-color;
-                    display: block;
-                    font-weight: 400;
-                    text-transform: none;
-                    white-space: nowrap;
-                    transition: $btn--transition;
-
-                    &:hover {
-                        color: $color--orange;
-                        text-decoration: none;
-                    }
-                }
-            }
-        }
-
-        &:hover ul {
-            left: 0px;
-            width: initial;
-            opacity: 1;
-        }
-
-        &:hover ul a {
-            color: #010101;
-            display: inline-block;
-            font-size: 16px;
-            padding: 0;
-            text-decoration: none;
-            text-transform: none;
-            white-space: nowrap;
-            font-weight: 400;
-        }
-    }
+.callback {
+	float: right;
+    margin-top: 12px;
 }
-.header__button {
-	margin-top: 12px;
-}
+@import "navigation";
 /********* slider **********/
 .owl__slider__wrapper {
     background-color: $global-bg-background;
@@ -902,7 +790,7 @@ input, select {
     line-height: 38px;
     outline: 0;
     padding: 5px 0;
-    z-index: 10001;
+    z-index: 99999;
     position: fixed;
     bottom: 55px;
     right: 50px;

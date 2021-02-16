@@ -214,22 +214,37 @@ $(document).ready(function() {
         
         var e = window.innerWidth;
         
+        // Maskedinput
         $('#calls_tel').mask('+38(999) 999-99-99');
         $('#contacts_phone').mask('+38(999) 999-99-99');
         $('#costings_tel').mask('+38(999) 999-99-99');
+
+        //  Open nav 
+        $('.navbar__open').click(function() {
+            $('.navigation__mobile').addClass('mobile__navigation active');
+        });
+      
+        //  Close nav 
+        $('.navbar__close').click(function() {
+            $('.navigation__mobile').removeClass('mobile__navigation active');
+        });
         
+        // Scroll Top
         $('.scrollup').click(function(){ $("html, body").animate({ scrollTop: 0 }, 600); return false; }),
 
-		$(window).scroll(function() { h = 500, scroll_up(h), e >= "991" && (h_v = 10, header_fixed(h_v))}), 
+        // Fixed Navigation
+		$(window).scroll(function() { h = 500, scroll_up(h), e >= "1200" && (h_v = 10, header_fixed(h_v))}), 
 		
-		$("a.cd-mvideo").on("click", function(e) { return e.preventDefault(), youtube1($(this).attr("href")), false }), 
+		// Video Modal
+        $("a.cd-mvideo").on("click", function(e) { return e.preventDefault(), youtube1($(this).attr("href")), false }), 
         
-		$("#socia-share-buttons .s_shared").on("click", function(e) {
+		// Shared
+        $("#socia-share-buttons .s_shared").on("click", function(e) {
             var t = $(this).attr("data-target");
             return window.open(t, "_blank", "scrollbars=0, resizable=1, menubar=0, left=400, top=110, width=550, height=440, toolbar=0, status=0"), e.preventDefault(), false
         });
         
-        /* FancyGallery */
+        // FancyGallery
         $("a.project").fancybox({
             openEffect	: 'none',
             padding	: 0,

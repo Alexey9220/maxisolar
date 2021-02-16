@@ -1,0 +1,300 @@
+/********* navigation **********/
+.navigation {
+    position: relative;
+    margin: 20px 80px 0px;
+    float: left;
+
+    ul {
+        list-style-image: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        display: inline-block;
+        position: relative;
+        
+        a {
+            color: $global-text-color;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 5px 15px 5px 15px;
+            text-decoration: none;
+            text-transform: none;
+            transition: $btn--transition;
+
+            &.dropdown-link:after {
+                content: "\e874";
+                font-weight: 800;
+                font-family: Linearicons-Free;
+                speak: none;
+                font-style: normal;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                letter-spacing: 0;
+                font-size: 11px;
+                margin-left: 5px;
+                font-feature-settings: "liga";
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        }
+
+        a:hover {
+            color: $color--orange;
+            text-decoration: none;
+        }
+
+        ul {
+            background: #fff;
+            left: -9999px;
+            margin: 0;
+            padding: 10px 20px;
+            position: absolute;
+            text-align: left;
+            z-index: 100;
+            box-shadow: $global-box-shadow-45;
+            opacity: 0;
+
+            li {
+                border: none;
+                display: block;
+                float: none;
+                margin: 5px 0;
+                padding: 0px;
+
+                a {
+                    color: $global-text-color;
+                    display: block;
+                    font-weight: 400;
+                    text-transform: none;
+                    white-space: nowrap;
+                    transition: $btn--transition;
+
+                    &:hover {
+                        color: $color--orange;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        &:hover ul {
+            left: 0px;
+            width: initial;
+            opacity: 1;
+        }
+
+        &:hover ul a {
+            color: $global-text-color;;
+            display: inline-block;
+            font-size: 16px;
+            padding: 0;
+            text-decoration: none;
+            text-transform: none;
+            white-space: nowrap;
+            font-weight: 400;
+        }
+    }
+}
+/********* navigation fixed **********/
+.header__navigation.fixed {
+    position: fixed;
+    z-index: 10000;
+    top: 0px;
+    width: 100%;
+    padding: 5px 15px;
+    margin: 0px;
+    background: $global-nav-fixed-bg;
+	animation: fixed_nav .95s forwards cubic-bezier(.4, 0, .2, 1);
+    box-shadow: $global-box-shadow-45;
+
+    .header {
+        padding: 0px;
+    }
+
+    .logo img {
+        width: 160px;
+    }
+
+    .navigation {
+        margin: 10px 80px 0px;
+    }
+
+    .callback {
+        margin-top: 2px;
+    }
+}
+/********* mobile navigation **********/
+.mobile__navigation {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 24, 117, 0.95);
+    z-index: 1000;
+
+    &.active {
+        display: block;
+        padding-top: 55px;
+        padding-left: 120px;
+    }
+}
+.navbar__open {
+    position: absolute;
+    left: 25px;
+    top: 15px;
+    cursor: pointer;
+    padding: 20px 10px 20px 10px;
+    line-height: 5px;
+    color: $global-text-color;
+
+    i {
+        font-style: normal;
+        padding-left: 40px;
+    }
+}
+.navbar__open span, .navbar__open span:before, .navbar__open span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 3px;
+    width: 30px;
+    background: $global-text-color;
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all 300ms ease-in-out;
+}
+.navbar__open span:before {
+    top: -10px;
+}
+.navbar__open span:after {
+    bottom: -10px;
+}
+.navbar__close {
+    position: absolute;
+    left: 50px;
+    top: 15px;
+    cursor: pointer;
+    padding: 20px 10px 20px 10px;
+    line-height: 5px;
+    color: #fff;
+    width: 50px;
+}
+.navbar__close span, .navbar__close span:before, .navbar__close span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 3px;
+    width: 30px;
+    background: #fff;
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all 300ms ease-in-out;
+}
+.navbar__close span {
+    background-color: transparent;
+}
+.navbar__close span:before, .navbar__close span:after {
+    top: 0;
+}
+.navbar__close span:before {
+    transform: rotate(45deg);
+}
+.navbar__close span:after {
+    transform: rotate(-45deg);
+}
+
+.nav-mobile {
+    position: relative;
+    display: none;
+}
+
+/* Mobile navigation */
+@media only screen and (max-width: 1199px) {
+
+    .nav-mobile {
+        display: block;
+    }
+    .navigation {
+        position: initial;
+        margin: 0px;
+    }
+    .navigation ul {
+        display: none;
+    }
+    .navigation li {
+        display: block;
+        position: initial;
+        text-align: left;
+    }
+    .navigation li a {
+        padding: 10px 0;
+        color: #fff;
+        font-weight: 400;
+        font-size: 22px;
+
+        &.dropdown-link:after {
+            content: "\e876";
+        }
+    }
+    .navigation li ul {
+        display: block;
+        position: initial;
+        left: 0px;
+        opacity: unset;
+        box-shadow: unset;
+        padding: 0px;
+        margin: 0px 0 0 20px;
+        background: transparent;
+        z-index: initial;
+    }
+    .navigation li ul li {
+        padding: 0px;
+        margin: 0px;
+    }
+    .navigation li ul li a {
+        color: #fff;
+        padding: 5px 0;
+        font-size: 16px;
+        font-weight: 400;
+    }
+    .navigation li:hover ul a {
+        color: #fff;
+        padding: 5px 0;
+        font-size: 16px;
+    }
+}
+
+@media (max-width:599px) and (min-width:320px) {
+
+    .mobile__navigation {
+
+        &.active {
+            display: block;
+            padding-top: 55px;
+            padding-left: 20px;
+        }
+    }
+
+    .navigation li ul {
+        margin: 0px;
+    }
+
+    .navigation li ul li a {
+        font-size: 13px;
+    }
+    .navigation li:hover ul a {
+        font-size: 13px;
+    }
+
+    .navbar__close {
+        left: unset;
+        right: 25px;
+    }
+}

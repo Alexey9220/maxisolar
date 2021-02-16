@@ -55,6 +55,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Info Projects-->
                 <div class="row">
                     <div class="col-md-7 col-lg-7">
                         <div class="col__project center">
@@ -66,7 +67,7 @@
                                         href="<!--{$list[0].img}-->" 
                                         class="project btn white-color b-large b-60" 
                                         rel="mainproject">
-                                        <span class="lnr lnr-magnifier"></span> Смотреть все фото
+                                        <span class="lnr lnr-magnifier"></span> <!--{#PROJECT_allPhoto#}-->
                                     </a>
                                 </div> 	
                             </div>
@@ -99,31 +100,31 @@
                         <div class="grey__backround padding__lr__40">
                             <div class="dpn__project">
                                 <!--{if $list[0].video}-->
-                                <span href="<!--{$list[0].video}-->" class="cd-mvideo youtube__video"><span class="lnr lnr-film-play"></span> Видео - обзор</span>
+                                <span href="<!--{$list[0].video}-->" class="cd-mvideo youtube__video"><span class="lnr lnr-film-play"></span> <!--{#PROJECT_video#}--></span>
                                 <!--{/if}-->
                                 <!--{if $list[0].green_tarif == 1}-->
-                                <span class="green__tariff"><span class="lnr lnr-leaf"></span> «Зеленый» тариф</span>
+                                <span class="green__tariff"><span class="lnr lnr-leaf"></span> <!--{#PROJECT_green#}--></span>
                                 <!--{/if}-->
                             </div>
                             <!--{if $list[0].green_tarif == 1}-->
                             <div class="dpn__project">
-                                <div>Оформлен «Зеленый» тариф</div>
+                                <div><!--{#PROJECT_greent#}--></div>
                             </div>
                             <!--{/if}-->
                             <div class="dpn__project">
-                                <strong>Ввод в эксплуатацию:</strong>
+                                <strong><!--{#PROJECT_41#}--></strong>
                                 <div><!--{$list[0].expluatation}--></div>
                             </div>
                             <div class="dpn__project">
-                                <strong>Месторасположение:</strong>
+                                <strong><!--{#PROJECT_42#}--></strong>
                                 <div><!--{$list[0].location}--></div>
                             </div>
                             <div class="dpn__project">
-                                <strong>Солнечные батареи:</strong>
+                                <strong><!--{#PROJECT_43#}--></strong>
                                 <div><!--{$list[0].batery}--></div>
                             </div>
                             <div class="dpn__project">
-                                <strong>Сетевой инвертор:</strong>
+                                <strong><!--{#PROJECT_44#}--></strong>
                                 <div><!--{$list[0].invertor}--></div>
                             </div>
                             <div class="line__stripped"></div>
@@ -131,15 +132,15 @@
                                 data-wow-duration=".5s" 
                                 data-wow-delay=".8s">
                                 <p>
-                                    <strong>Понравился данный проект?</strong> 
+                                    <strong><!--{#PROJECT_pr1#}--></strong> 
                                     <br> 
-                                    Узнайте стоимость строительcтва «Под ключ» у нашего менеджера!
+                                    <!--{#PROJECT_pr2#}-->
                                 </p>
                                 <a 
                                     data-reveal-id="findprice" 
                                     class="btn orange-color b-large" 
-                                    href="/">
-                                    Узнать стоимость <span class="lnr lnr-chevron-right"></span>
+                                    title="<!--{$Parameters.get_price}-->">
+                                    <!--{$Parameters.get_price}--> <span class="lnr lnr-chevron-right"></span>
                                 </a>
                             </div>
                         </div>
@@ -147,6 +148,8 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Description Projects-->
         <div class="wrapper">
             <div class="container">
                 <div class="row">
@@ -162,6 +165,8 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Similar Projects-->
         <div class="wrapper">
             <div class="container-full">
                 <div class="row">
@@ -188,7 +193,7 @@
                                         <a class="btn white-color b-average b-90" title="<!--{$Parameters.get_more}-->" href="<!--{$similar[i].href}-->"><span class="lnr lnr-link"></span> <!--{$Parameters.get_more}--></a>
                                         <a data-reveal-id="findprice" class="btn orange-color b-average b-90" title="<!--{$Parameters.get_price}-->"><!--{$Parameters.get_price}--></a>
                                     </div>   
-                                    <span class="col__project__tariff"><span class="lnr lnr-leaf"></span> Зеленый тариф</span>			
+                                    <span class="col__project__tariff"><span class="lnr lnr-leaf"></span> <!--{#PROJECT_green#}--></span>			
                                 </div>
                                 <div class="title">
                                     <a href="<!--{$similar[i].href}-->" title="<!--{$similar[i].name}-->"><!--{$similar[i].name}--></a>
