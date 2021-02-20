@@ -6,23 +6,7 @@
 	<!--{include file="_header.html"}-->
 
 <!-- Breadcrumbs-->
-	<div class="breadcrumbs__backround wrapper">
-		<div class="container-full">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section__title">
-						<div class="title"><!--{$Parameters.company_gmp_t}--></div>
-						<div class="section__separator">
-							<p><!--{$Parameters.company_gmp_d}--></p>
-						</div>
-					</div>
-					<div class="path">
-						<span class="lnr lnr-home"></span> <a href="<!--{$way.waybackurl}-->" title="<!--{$way.waybackname}-->"><!--{$way.waybackname}--></a> &rsaquo; <!--{if $way.name_path}--><!--{$way.name_path}--><!--{else}--><!--{$way.name}--><!--{/if}-->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<!--{include file="_path.html"}-->
 
 <!-- Contacts Start-->
 	<article>

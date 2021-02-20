@@ -6,39 +6,7 @@
     <!--{include file="_header.html"}-->
 
 <!-- Breadcrumbs-->
-    <div class="breadcrumbs__backround wrapper">
-        <div class="container-full">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section__title">
-                        <div class="title"><!--{$Parameters.projects_title}--></div>
-                        <div class="section__separator">
-                            <p><!--{$Parameters.projects_titledpn}--></p>
-                        </div>
-                    </div>
-                    <div class="path">
-                        <!--{if $way_project.pro_page}-->
-                                <span class="lnr lnr-home"></span> <a href="<!--{$way_project.waybackurl}-->" title="<!--{$way_project.waybackname}-->"><!--{$way_project.waybackname}--></a> 
-                                &rsaquo; 
-                            <a href="<!--{$way_project.name_path_href}-->" title="<!--{$way_project.name}-->"><!--{$way_project.name}--></a> 
-                                &rsaquo;
-                                <!--{$way_project.project_path_name}-->
-                        <!--{else}-->
-                            <!--{if $way.pro_list}-->
-                                <a href="<!--{$way.waybackurl}-->" title="<!--{$way.waybackname}-->"><!--{$way.waybackname}--></a> 
-                                    &rsaquo; 
-                                <!--{if $way.name_path}-->
-                                    <!--{$way.name_path}-->
-                                <!--{else}-->
-                                    <!--{$way.name}-->
-                                <!--{/if}-->
-                            <!--{/if}-->
-                        <!--{/if}-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--{include file="_path.html"}-->
 
 <!-- Content Start-->
     <article>
@@ -47,51 +15,46 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section__title">
-                            <h1>Наши проекты</h1>
+                            <h1><!--{$Parameters.projects_title}--></h1>
                             <div class="section__separator">
-                                <p>За время нашей работы мы выполнили множество проектов по строительству солнечных электростанций</p>
+                                <p><!--{$Parameters.projects_titledpn}--></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <!--{section name=i loop=$gallerylist.content}-->
+                    <!--{section name=i loop=$gallerylist}-->
                     <div class="col-lg-4">
                         <div class="col__project center">
                             <div class="col__project__link">
-                                <img src="<!--{$gallerylist.content[i].img}-->" alt="<!--{$gallerylist.content[i].name}-->">
+                                <img src="<!--{$gallerylist[i].img}-->" alt="<!--{$gallerylist[i].name}-->">
                                 <div class="col__project__layer"></div>
                                 <div class="col__project__link">
-                                    <a class="btn white-color b-large b-60" title="<!--{$Parameters.get_more}-->" href="<!--{$gallerylist.content[i].href}-->"><span class="lnr lnr-link"></span> <!--{$Parameters.get_more}--></a>
+                                    <a class="btn white-color b-large b-60" title="<!--{$Parameters.get_more}-->" href="<!--{$gallerylist[i].href}-->"><span class="lnr lnr-link"></span> <!--{$Parameters.get_more}--></a>
                                     <a data-reveal-id="findprice" class="btn orange-color b-large b-60" title="<!--{$Parameters.get_price}-->"><!--{$Parameters.get_price}--></a>
                                 </div>   
-                                <!--{if $gallerylist.content[i].green_tarif == 1}-->
+                                <!--{if $gallerylist[i].green_tarif == 1}-->
                                 <span class="col__project__tariff"><!--{#PROJECT_green#}--></span>
                                 <!--{/if}-->		
                             </div>
                             <div class="title">
-                                <a href="<!--{$gallerylist.content[i].href}-->" title="<!--{$gallerylist.content[i].name}-->"><!--{$gallerylist.content[i].name}--></a>
-                                <div class="description"><!--{$gallerylist.content[i].short_dpn}--></div>
-                                <div class="date"><!--{$gallerylist.content[i].date}--></div>
+                                <a href="<!--{$gallerylist[i].href}-->" title="<!--{$gallerylist[i].name}-->"><!--{$gallerylist[i].name}--></a>
+                                <div class="description"><!--{$gallerylist[i].short_dpn}--></div>
+                                <div class="date"><!--{$gallerylist[i].date}--></div>
                             </div>
                         </div>   
                     </div>
-                        <!--{if $smarty.section.i.iteration % 2 == 0}--> 
-                        <div class="visible-sm">
-                            <div class="clearfix hidden-xs"></div>
-                        </div>
-                        <!--{/if}-->
-                        
-                        <!--{if $smarty.section.i.iteration % 3 == 0}--> 
-                        <div class="visible-md visible-lg">
-                            <div class="clearfix hidden-xs"></div>
-                        </div>
-                        <!--{/if}-->
+                    <!--{if $smarty.section.i.iteration % 2 == 0}--> 
+                    <div class="visible-sm"><div class="clearfix hidden-xs"></div></div>
+                    <!--{/if}-->
+                    <!--{if $smarty.section.i.iteration % 3 == 0}--> 
+                    <div class="visible-md visible-lg"><div class="clearfix hidden-xs"></div></div>
+                    <!--{/if}-->
                     <!--{/section}-->
                 </div>
                 
                 <!--{if $paginal}-->
-                    <!--{include file="_paginal.htm"}-->
+                    <!--{include file="_paginal.html"}-->
                 <!--{/if}-->
 
             </div>

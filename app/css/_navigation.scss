@@ -1,7 +1,6 @@
-/********* navigation **********/
 .navigation {
     position: relative;
-    margin: 20px 80px 0px;
+    margin: 20px 120px 0px;
     float: left;
 
     ul {
@@ -20,7 +19,7 @@
             display: inline-block;
             font-size: 16px;
             font-weight: 400;
-            padding: 5px 15px 5px 15px;
+            padding: 5px 12px 5px 12px;
             text-decoration: none;
             text-transform: none;
             transition: $btn--transition;
@@ -100,7 +99,6 @@
         }
     }
 }
-/********* navigation fixed **********/
 .header__navigation.fixed {
     position: fixed;
     z-index: 10000;
@@ -121,14 +119,13 @@
     }
 
     .navigation {
-        margin: 10px 80px 0px;
+        margin: 10px 120px 0px;
     }
 
     .callback {
         margin-top: 2px;
     }
 }
-/********* mobile navigation **********/
 .mobile__navigation {
     display: none;
     position: fixed;
@@ -136,7 +133,7 @@
     left: 0px;
     width: 100%;
     height: 100%;
-    background: rgba(11, 24, 117, 0.95);
+    background: $global-bg-respnav;
     z-index: 1000;
 
     &.active {
@@ -177,6 +174,7 @@
     bottom: -10px;
 }
 .navbar__close {
+    display: none;
     position: absolute;
     left: 50px;
     top: 15px;
@@ -210,15 +208,14 @@
     transform: rotate(-45deg);
 }
 
-.nav-mobile {
+.nav__mobile {
     position: relative;
     display: none;
 }
 
-/* Mobile navigation */
 @media only screen and (max-width: 1199px) {
 
-    .nav-mobile {
+    .nav__mobile, .navbar__close {
         display: block;
     }
     .navigation {
@@ -234,10 +231,10 @@
         text-align: left;
     }
     .navigation li a {
-        padding: 10px 0;
         color: #fff;
-        font-weight: 400;
         font-size: 22px;
+        font-weight: 400;
+        padding: 10px 0;
 
         &.dropdown-link:after {
             content: "\e876";
@@ -250,7 +247,7 @@
         opacity: unset;
         box-shadow: unset;
         padding: 0px;
-        margin: 0px 0 0 20px;
+        margin-left: 20px;
         background: transparent;
         z-index: initial;
     }

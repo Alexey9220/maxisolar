@@ -1,4 +1,4 @@
-.footer-social {
+.footer__social {
     text-align: center;
 	list-style-image: none;
     list-style: none;
@@ -55,12 +55,13 @@
         }
     }
 }
-.socia-share-buttons {
+.share__buttons {
 
     ul {
+        text-align: center;
         list-style-image: none;
         list-style: none;
-        margin: 20px 0 0;
+        margin: 30px 0;
         padding: 0;
     }
 
@@ -68,25 +69,16 @@
         list-style-image: none;
         list-style: none;
         display: inline-block;
-        margin: 5px 0;
+        margin: 0px 2px;
 
         &:before {
             content: initial;
         }
 
         a {
-            color: #fff;
-            cursor: pointer;
-            display: block;
-            font-size: 16px;
-            line-height: 26px;
-            text-align: center;
-            text-decoration: none;
-            height: 26px;
-            width: 26px;
-            border: none;
-            border-radius: 2px;
-            transition: all .3s linear 0;
+            width: 32px;
+            display: inline-block;
+            transition: all .3s linear 0s;
         }
 
         & a:hover {
@@ -94,30 +86,5 @@
             text-decoration: none;
             opacity: 0.8;
         }
-    }
-
-    .sh-facebook {
-        background-color: #3b5998;
-    }
-    .sh-twitter {
-        background-color: #00aced;
-    }
-    .sh-vkontakte {
-        background-color: #48729e;
-    }
-    .sh-googleplus {
-        background-color: #dc4e41;
-    }
-    .sh-odnoklassniki {
-        background-color: #eb722e;
-    }
-    .sh-viber {
-        background-color: #7b519d;
-    }
-    .sh-whatsapp {
-        background-color: #65bc54;
-    }
-    .sh-telegram {
-        background-color: #00aced;
     }
 }

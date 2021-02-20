@@ -4,18 +4,6 @@ function header_fixed(e) {
     })) : ($(".header__navigation").removeClass("fixed"), $(".header-fixed").removeClass("hidden"), $(".header-fixed").removeAttr("style"))
 }
 
-function toggleNav() {
-    var e = !$(".cd-dropdown").hasClass("dropdown-is-active");
-    $(".cd-dropdown").toggleClass("dropdown-is-active", e), $(".cd-dropdown-trigger").toggleClass("dropdown-is-active", e), e || $(".cd-dropdown").one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function() {
-        $(".has-children ul").addClass("is-hidden"), $(".move-out").removeClass("move-out"), $(".is-active").removeClass("is-active")
-    })
-}
-
-function videomodal() {
-    var e = !$(".cd-mobile-video").hasClass("v-is-active");
-    $(".cd-mobile-video").toggleClass("v-is-active", e), $(".cd-mvideo").toggleClass("v-is-active", e), e || $(".cd-mobile-video").one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function() {})
-}
-
 function scroll_up(e) {
     $(this).scrollTop() > e ? ($(".scrollup").fadeIn(), $(".scrollup").addClass("animation")) : ($(".scrollup").fadeOut(), $(".scrollup").removeClass("animation"))
 }
@@ -24,7 +12,6 @@ var timerstart = new Date();
 
 function feedback(form, itemname, lang) {
 		
-	//form.getElementsByClassName('indicator')[0].style.display="block";
 	form.getElementsByClassName('result')[0].innerHTML = '';
 	
 	var list = form.getElementsByTagName('input');
@@ -125,7 +112,6 @@ function feedback(form, itemname, lang) {
 			}
 		});
 	} else {
-		//form.getElementsByClassName('indicator')[0].style.display="none";
 		form.getElementsByClassName('result')[0].className = 'occurred result';
 		form.getElementsByClassName('result')[0].innerHTML = validated;		
 	}
@@ -137,7 +123,6 @@ function newfeedback(data, param) {
 	var result = $.parseJSON(data);
 	
 	if (result['result'] != 'false') {
-		//param[0].getElementsByClassName('indicator')[0].style.display="none";
 		param[0].getElementsByClassName('result')[0].className = 'success result';
 		param[0].getElementsByClassName('result')[0].innerHTML = result['message'];
 		param[0].reset();
@@ -157,7 +142,6 @@ function newfeedback(data, param) {
 			}
 		});
 	} else {	
-		//param[0].getElementsByClassName('indicator')[0].style.display="none";
 		param[0].getElementsByClassName('result')[0].className = 'occurred result';
 		param[0].getElementsByClassName('result')[0].innerHTML = result['message'];
 	}
@@ -234,15 +218,6 @@ $(document).ready(function() {
 
         // Fixed Navigation
 		$(window).scroll(function() { h = 500, scroll_up(h), e >= "1200" && (h_v = 10, header_fixed(h_v))}), 
-		
-		// Video Modal
-        $("a.cd-mvideo").on("click", function(e) { return e.preventDefault(), youtube1($(this).attr("href")), false }), 
-        
-		// Shared
-        $("#socia-share-buttons .s_shared").on("click", function(e) {
-            var t = $(this).attr("data-target");
-            return window.open(t, "_blank", "scrollbars=0, resizable=1, menubar=0, left=400, top=110, width=550, height=440, toolbar=0, status=0"), e.preventDefault(), false
-        });
         
         // FancyGallery
         $("a.project").fancybox({
@@ -383,115 +358,6 @@ $(document).ready(function() {
 		
     }),
     function(e) {
-        function t(t) {
-            var a = e(this),
-                i = null,
-                n = [],
-                o = null,
-                r = null,
-                s = e.extend({
-                    rowSelector: "> li",
-                    submenuSelector: "*",
-                    submenuDirection: "right",
-                    tolerance: 75,
-                    enter: e.noop,
-                    exit: e.noop,
-                    activate: e.noop,
-                    deactivate: e.noop,
-                    exitMenu: e.noop
-                }, t),
-                l = function(e) {
-                    e != i && (i && s.deactivate(i), s.activate(e), i = e)
-                },
-                d = function(e) {
-                    var t = c();
-                    t ? r = setTimeout(function() {
-                        d(e)
-                    }, t) : l(e)
-                },
-                c = function() {
-                    function t(e, t) {
-                        return (t.y - e.y) / (t.x - e.x)
-                    }
-                    if (!i || !e(i).is(s.submenuSelector)) return 0;
-                    var r = a.offset(),
-                        l = {
-                            x: r.left,
-                            y: r.top - s.tolerance
-                        },
-                        d = {
-                            x: r.left + a.outerWidth(),
-                            y: l.y
-                        },
-                        c = {
-                            x: r.left,
-                            y: r.top + a.outerHeight() + s.tolerance
-                        },
-                        u = {
-                            x: r.left + a.outerWidth(),
-                            y: c.y
-                        },
-                        m = n[n.length - 1],
-                        v = n[0];
-                    if (!m) return 0;
-                    if (v || (v = m), v.x < r.left || v.x > u.x || v.y < r.top || v.y > u.y) return 0;
-                    if (o && m.x == o.x && m.y == o.y) return 0;
-                    var p = d,
-                        g = u;
-                    "left" == s.submenuDirection ? (p = c, g = l) : "below" == s.submenuDirection ? (p = u, g = c) : "above" == s.submenuDirection && (p = l, g = d);
-                    var f = t(m, p),
-                        h = t(m, g),
-                        b = t(v, p),
-                        $ = t(v, g);
-                    return f < b && h > $ ? (o = m, 300) : (o = null, 0)
-                };
-            a.mouseleave(function() {
-                r && clearTimeout(r), s.exitMenu(this) && (i && s.deactivate(i), i = null)
-            }).find(s.rowSelector).mouseenter(function() {
-                r && clearTimeout(r), s.enter(this), d(this)
-            }).mouseleave(function() {
-                s.exit(this)
-            }).click(function() {
-                l(this)
-            }), e(document).mousemove(function(e) {
-                n.push({
-                    x: e.pageX,
-                    y: e.pageY
-                }), n.length > 3 && n.shift()
-            })
-        }
-        e.fn.menuAim = function(e) {
-            return this.each(function() {
-                t.call(this, e)
-            }), this
-        }
-    }(jQuery), $(".cd-mobile-video .mv-close").on("click", function(e) {
-        e.preventDefault(), videomodal()
-    }), $(".cd-dropdown-trigger").on("click", function(e) {
-        e.preventDefault(), toggleNav()
-    }), $(".cd-dropdown .cd-close").on("click", function(e) {
-        e.preventDefault(), toggleNav()
-    }), $(".has-children").children("a").on("click", function(e) {
-        $(this).parent(".has-children").parent(".cd-dropdown-content").length > 0 && e.preventDefault(), $(this).next("ul").removeClass("is-hidden").end().parent(".has-children").parent("ul").addClass("move-out")
-    });
-var submenuDirection = $(".cd-dropdown-wrapper").hasClass("open-to-left") ? "left" : "right";
-$(".cd-dropdown-content").menuAim({
-        activate: function(e) {
-            $(e).children().addClass("is-active").removeClass("fade-out"), 0 == $(".cd-dropdown-content .fade-in").length && $(e).children("ul").addClass("fade-in")
-        },
-        deactivate: function(e) {
-            $(e).children().removeClass("is-active"), (0 == $("li.has-children:hover").length || $("li.has-children:hover").is($(e))) && ($(".cd-dropdown-content").find(".fade-in").removeClass("fade-in"), $(e).children("ul").addClass("fade-out"))
-        },
-        exitMenu: function() {
-            return $(".cd-dropdown-content").find(".is-active").removeClass("is-active"), false
-        },
-        submenuDirection: submenuDirection
-    }), $(".go-back").on("click", function() {
-        var e = $(this);
-        $(this).parent("ul").parent(".has-children").parent("ul");
-        e.parent("ul").addClass("is-hidden").parent(".has-children").parent("ul").removeClass("move-out")
-    }),
-    function(e) {
         e("a[data-reveal-id]").on("click", function(t) {
             t.preventDefault();
             var a = e(this).attr("data-reveal-id");
@@ -508,7 +374,6 @@ $(".cd-dropdown-content").menuAim({
                 function a() {
                     s = false
                 }
-
                 function i() {
                     s = false
                 }

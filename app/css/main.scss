@@ -377,15 +377,19 @@ input, select {
 /********* sections **********/
 .line__stripped {
     width: 100%;
+    float: left;
     height: 1px;
-    margin: 20px 0;
     background: $global-shade-color;
+    margin: 20px 0;
 }
 .padding__tb__40 {
     padding: 40px 0;
 }
 .padding__lr__40 {
     padding: 40px 40px;
+}
+.padding__lr__20 {
+    padding: 20px 20px;
 }
 .white__backround {
     background: #fff;
@@ -409,13 +413,13 @@ input, select {
     position: relative;
     color: #fff;
     background: $global-bg-background;
-    background: url(/images/promo.jpg);
+    background: url(/_files/template/images/promo.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: overlay;
     background-attachment: fixed;
     background-position: center center;
-    padding: 120px 0;
+    padding: 160px 0;
     
     &:before {
         @extend %background__before;
@@ -434,7 +438,7 @@ input, select {
     position: relative;
     color: #fff;
     background: $global-bg-background;
-    background: url(/images/breadcrumbs.jpg);
+    background: url(/_files/template/images/breadcrumbs.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: overlay;
@@ -501,6 +505,10 @@ input, select {
         border-right: 1px solid $global-shade-color;
         border-left: 1px solid $global-shade-color;
     }
+
+    img {
+        width: 80%;
+    }
     
     .title {
         margin: 10px 0 0;
@@ -508,7 +516,7 @@ input, select {
         & a {
             font-size: 18px;
             font-weight: 500;
-            color: $global-link-color;
+            color: $global-text-color;
             text-decoration: none;
             padding: 0 20px;
             text-align: center;
@@ -550,6 +558,7 @@ input, select {
     }
 
     li {
+        position: relative;
         display: inline-block;
         vertical-align: middle;
         list-style-image: none;
@@ -566,19 +575,24 @@ input, select {
 
         & span {
             font-weight: 500;
-            font-size: 34px;
-            border: 4px solid $color--orange;
+            font-size: 14px;
             box-shadow: $global-box-shadow-25;
             display: inline-block;
-            background: transparent;
-            line-height: 30px;
-            padding: 10px 0;
-            width: 55px;
-            height: 55px;
+            width: 22px;
+            height: 20px;
+            background: $color--orange;
+            color: #fff;
+            position: absolute;
+            top: 50px;
+            left: 15px;
+            border-radius: 50%;
+            line-height: 20px;
         }
 
         & strong {
             display: block;
+            font-weight: 600;
+            margin: 20px 0 10px;
         }
     }
 }
@@ -668,9 +682,19 @@ input, select {
         font-size: 13px;
     }
 }
+.title__project {
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
 .dpn__project {
-    margin: 0px 0 15px;
+    margin: 0px 0 5px;
+    font-size: 14px;
 
+    p {
+        margin-bottom: 5px;
+    }
+    
     .green__tariff {
         background: #269f2c;
         display: inline-block;

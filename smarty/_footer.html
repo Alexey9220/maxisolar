@@ -36,7 +36,7 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-12 center">
-				<ul class="footer-social">	
+				<ul class="footer__social">	
 					<li><!--{$Parameters.support_footer_text}--> </li>
 					<!--{if $Parameters.fb_link}-->
                     <li><a title="Facebook" target="_blank" href="<!--{$Parameters.fb_link}-->"><img src="<!--{$SITE__TEMPLATE}-->/images/social_icon/facebook.svg"></a></li>
@@ -72,7 +72,7 @@
 <!-- Consultation Modal-->
     <!--{include file="forms/feedbackconsultation.htm"}-->
 
-<link rel="stylesheet" href="<!--{$SITE__TEMPLATE}-->/css/linear-icons.css">
+<link rel="stylesheet" href="<!--{$SITE__TEMPLATE}-->/css/linear-icons.css<!--{$globalParams.cache_response}-->">
 
 <script type="text/javascript" src="<!--{$SITE__TEMPLATE}-->/js/jquery-1.12.4.min.js<!--{$globalParams.cache_response}-->"></script>
 <script type="text/javascript" src="<!--{$SITE__TEMPLATE}-->/js/maskedinput.min.js<!--{$globalParams.cache_response}-->"></script>
