@@ -90,7 +90,7 @@
     white-space: nowrap;
     background: 0 0;
     background: #fff;
-    border-radius: 0;
+    border-radius: $btn--radius;
     opacity: 1;
     appearance: none;
     box-sizing: border-box;
@@ -108,7 +108,7 @@
     text-overflow: ellipsis;
     background: 0 0;
     background: #fff;
-    border-radius: 0;
+    border-radius: $btn--radius;
     opacity: 1;
     appearance: none;
     box-sizing: border-box;

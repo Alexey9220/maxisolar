@@ -25,7 +25,7 @@
                 <!-- Info Projects-->
                 <div class="row">
                     <div class="col-md-7 col-lg-7">
-                        <div class="col__project center">
+                        <div class="hidden-xs col__project center">
                             <div class="col__project__link">
                                 <img src="<!--{$list[0].img}-->" alt="<!--{$o.name}-->">
                                 <div class="col__project__layer"></div>
@@ -44,17 +44,22 @@
                             <div id="owl__photos__projects">
                                 <!--{section name=i loop=$list}-->
                                 <!--{if $smarty.section.i.first}-->
+                                    <div class="visible-xs item">
+                                        <a class="project" rel="mainproject" title="<!--{$o.name}-->" href="<!--{$list[i].img}-->">
+                                            <img alt="<!--{$o.name}-->" src="<!--{$list[i].img}-->">
+                                        </a>
+                                    </div>
                                 <!--{else}-->
-                                <div class="item">
-                                    <a class="project" rel="mainproject" title="<!--{$o.name}-->" href="<!--{$list[i].img}-->">
-                                        <img alt="<!--{$o.name}-->" src="<!--{$list[i].img}-->">
-                                    </a>
-                                </div>
+                                    <div class="item">
+                                        <a class="project" rel="mainproject" title="<!--{$o.name}-->" href="<!--{$list[i].img}-->">
+                                            <img alt="<!--{$o.name}-->" src="<!--{$list[i].img}-->">
+                                        </a>
+                                    </div>
                                 <!--{/if}--> 
 					            <!--{/section}-->
                             </div>
                             <!--{if $smarty.section.i.total > 4}--> 
-                            <div class="owl__slider__controls">
+                            <div class="owl__photos__projects owl__slider__controls">
                                 <div class="slider_arrow slider_arrow_left"><span class="lnr lnr-chevron-left"></span></div>
                                 <div class="slider_arrow slider_arrow_right"><span class="lnr lnr-chevron-right"></span></div>
                             </div>
@@ -70,7 +75,7 @@
                         data-wow-duration=".5s" 
                         data-wow-delay=".2s">
                         <div class="grey__backround padding__lr__20">
-                            <div class="title__project"><!--{#PROJECT_87jk#}--></div>
+                            <div class="title__project"><img width="26px" src="/_files/template/images/checkmark.svg"> <!--{#PROJECT_87jk#}--></div>
                             <div class="dpn__project">
                                 <!--{if $list[0].video}-->
                                 <span href="<!--{$list[0].video}-->" class="cd-mvideo youtube__video"><span class="lnr lnr-film-play"></span> <!--{#PROJECT_video#}--></span>
@@ -97,13 +102,15 @@
                                 <strong><!--{#PROJECT_42#}--></strong> <!--{$list[0].location}-->
                             </div>
                             
+                            <div class="line__stripped"></div>
                             <div class="dpn__project">
-                                <div class="title__project"><!--{#PROJECT_81jk#}--></div>
+                                <div class="title__project"><img width="26px" src="/_files/template/images/checkmark.svg"> <!--{#PROJECT_81jk#}--></div>
                                 <!--{$list[0].dpn}-->
                             </div>
                             
+                            <div class="line__stripped"></div>
                             <div class="dpn__project">
-                                <div class="title__project"><!--{#PROJECT_17jk#}--></div>
+                                <div class="title__project"><img width="26px" src="/_files/template/images/checkmark.svg"> <!--{#PROJECT_17jk#}--></div>
                                 <!--{$list[0].text}-->
                             </div>
                             
@@ -165,7 +172,7 @@
                         </div>
                         <!--{/section}-->
                     </div>
-                    <div class="owl__slider__controls">
+                    <div class="owl__similar__projects owl__slider__controls">
                         <div class="slider_arrow slider_arrow_left"><span class="lnr lnr-chevron-left"></span></div>
                         <div class="slider_arrow slider_arrow_right"><span class="lnr lnr-chevron-right"></span></div>
                     </div>

@@ -279,8 +279,8 @@ $(document).ready(function() {
         $("#owl__slider__projects").owlCarousel({
             autoPlay: 7000,
             items: 3,
-            itemsDesktop: [1199, 5],
-            itemsDesktopSmall: [979, 4],
+            itemsDesktop: [1199, 3],
+            itemsDesktopSmall: [979, 2],
             itemsTablet: [768, 3],
             autoPlay: false,
             stopOnHover: false,
@@ -303,7 +303,8 @@ $(document).ready(function() {
         })
 
         // Slider OWL photos projects
-        $("#owl__photos__projects").owlCarousel({
+        let owl__photos__projects = $("#owl__photos__projects");
+        owl__photos__projects.owlCarousel({
             autoPlay: 7000,
             items: 4,
             itemsDesktop: [1199, 4],
@@ -322,15 +323,16 @@ $(document).ready(function() {
             paginationSpeed: 1300,
             rewindSpeed: 1300
         }), 
-        $(".owl__slider__controls .slider_arrow_right").click(function() {
-            $("#owl__photos__projects").trigger("owl.next")
+        $(".owl__photos__projects .slider_arrow_right").click(function() {
+            owl__photos__projects.trigger("owl.next")
         }), 
-		$(".owl__slider__controls .slider_arrow_left").click(function() {
-            $("#owl__photos__projects").trigger("owl.prev")
+		$(".owl__photos__projects .slider_arrow_left").click(function() {
+            owl__photos__projects.trigger("owl.prev")
         })
 
         // Slider OWL similar projects
-        $("#owl__similar__projects").owlCarousel({
+        let owl__similar__projects = $("#owl__similar__projects");
+        owl__similar__projects.owlCarousel({
             autoPlay: 7000,
             items: 4,
             itemsDesktop: [1199, 5],
@@ -349,11 +351,11 @@ $(document).ready(function() {
             paginationSpeed: 1300,
             rewindSpeed: 1300
         }), 
-        $(".owl__slider__controls .slider_arrow_right").click(function() {
-            $("#owl__similar__projects").trigger("owl.next")
+        $(".owl__similar__projects .slider_arrow_right").click(function() {
+            owl__similar__projects.trigger("owl.next")
         }), 
-		$(".owl__slider__controls .slider_arrow_left").click(function() {
-            $("#owl__similar__projects").trigger("owl.prev")
+		$(".owl__similar__projects .slider_arrow_left").click(function() {
+            owl__similar__projects.trigger("owl.prev")
         })
 		
     }),

@@ -1,29 +1,67 @@
 <header>
-    <div class="header__line">
-        <div class="container-full">
+    <div class="header__navigation">
+        <div class="container">
             <div class="row">
-                <div class="col-md-12 col-lg-12 center">
-                    <span class="left"><!--{$Parameters.shot_name_site}--></span>
-                    <ul class="header__contacts">
-                        <li><span class="lnr lnr-map-marker"></span> <!--{$Parameters.contacts}--></li>
-                        <li><span class="lnr lnr-phone-handset"></span> <!--{$Parameters.tels1}--></li>
-                        <li><span class="lnr lnr-phone-handset"></span> <!--{$Parameters.tels2}--></li>
+                <div class="visible-xs col-xs-12">
+                    <ul class="hidden-xs-inline-block hidden-sm hidden-md header__contacts">
+                        <li><a title="Позвонить" href="tel:<!--{$Parameters.link_tel1_href}-->"><!--{$Parameters.tels1}--></a> / <a title="Позвонить" href="tel:<!--{$Parameters.link_tel2_href}-->"><!--{$Parameters.tels2}--></a></li>
+                       <a data-reveal-id="zvonok" title="<!--{$Parameters.btn_zvonok}-->" class="btn b-small orange-color"><span class="lnr lnr-phone-handset"></span> <!--{$Parameters.btn_zvonok}--></a>
                     </ul>
-                    <ul class="header__social">	
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="logo">
+                        <a href="<!--{$global_href}-->" title="<!--{$Parameters.company}-->">
+                            <img src="<!--{$globalParams.logo}-->" alt="<!--{$Parameters.company}-->">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-3 col-xs-push-3 col-sm-8 col-md-8 col-lg-8 col-sm-push-0 col-md-push-0 col-lg-push-0">
+                    <ul class="hidden-xs hidden-sm hidden-md header__contacts">
+                        <li><span class="lnr lnr-phone-handset"></span> <a title="Позвонить" href="tel:<!--{$Parameters.link_tel1_href}-->"><!--{$Parameters.tels1}--></a></li>
+                        <li><span class="lnr lnr-phone-handset"></span> <a title="Позвонить" href="tel:<!--{$Parameters.link_tel2_href}-->"><!--{$Parameters.tels2}--></a></li>
+                    </ul>
+                    <ul class="hidden-xs hidden-sm header__social">	
                         <!--{if $Parameters.fb_link}-->
-                        <li><a title="Facebook" target="_blank" href="<!--{$Parameters.fb_link}-->"><img width="24px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/facebook.svg"></a></li>
+                        <li><a title="Facebook" target="_blank" href="<!--{$Parameters.fb_link}-->"><img width="28px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/facebook.svg"></a></li>
                         <!--{/if}-->
                         <!--{if $Parameters.viber_link}-->
-                        <li><a title="Viber" target="_blank" href="viber://chat?number=+<!--{$Parameters.viber_link}-->"><img width="24px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/viber.svg"></a></li>
-                        <li class="visible-xs-inline-block"><a title="Viber" target="_blank" href="viber://add?number=<!--{$Parameters.viber_link}-->"><img width="24px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/viber.svg"></a></li>
+                        <li><a title="Viber" target="_blank" href="viber://chat?number=+<!--{$Parameters.viber_link}-->"><img width="28px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/viber.svg"></a></li>
+                        <li class="visible-xs-inline-block"><a title="Viber" target="_blank" href="viber://add?number=<!--{$Parameters.viber_link}-->"><img width="28px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/viber.svg"></a></li>
                         <!--{/if}-->                       
                         <!--{if $Parameters.inst_link}-->
-                        <li><a title="Instagram" target="_blank" href="<!--{$Parameters.inst_link}-->"><img width="24px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/instagram.svg"></a></li>
+                        <li><a title="Instagram" target="_blank" href="<!--{$Parameters.inst_link}-->"><img width="28px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/instagram.svg"></a></li>
                         <!--{/if}-->
                         <!--{if $Parameters.tgme_link}-->
-                        <li><a title="Telegram" target="_blank" href="https://t.me/<!--{$Parameters.tgme_link}-->"><img width="24px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/telegram.svg"></a></li>
+                        <li><a title="Telegram" target="_blank" href="https://t.me/<!--{$Parameters.tgme_link}-->"><img width="28px" src="<!--{$SITE__TEMPLATE}-->/images/social_icon/telegram.svg"></a></li>
                         <!--{/if}-->
                     </ul>
+                    <a data-reveal-id="zvonok" title="<!--{$Parameters.btn_zvonok}-->" class="hidden-xs btn b-small orange-color"><span class="lnr lnr-phone-handset"></span> <!--{$Parameters.btn_zvonok}--></a> 
+                    <nav class="navigation">
+                        <div class="nav__mobile">
+                            <a class="navbar__open"><span></span> <i>Навигация</i></a>
+                         </div>
+                        <ul class="navigation__mobile">
+                            <!--{section name=i loop=$MMenu}-->
+                                <li<!--{if $MMenu[i].smenu}--> class="dropdown"<!--{/if}-->>
+                                    <!--{if $MMenu[i].smenu}-->
+                                        <a class="dropdown-link" href="<!--{$MMenu[i].sysname}-->" title="<!--{$MMenu[i].name}-->"><!--{$MMenu[i].name}--></a>
+                                    <!--{else}-->
+                                        <a href="<!--{$MMenu[i].sysname}-->" title="<!--{$MMenu[i].name}-->"><!--{$MMenu[i].name}--></a>
+                                    <!--{/if}-->
+                                        <!--{if $MMenu[i].smenu}-->
+                                            <ul>
+                                            <!--{section name=j loop=$MMenu[i].smenu}-->
+                                                <li><a href="<!--{$MMenu[i].smenu[j].sysname}-->" title="<!--{$MMenu[i].smenu[j].name}-->"><!--{$MMenu[i].smenu[j].name}--></a></li>
+                                            <!--{/section}-->
+                                            </ul>
+                                        <!--{/if}-->
+                                </li>
+                            <!--{/section}-->
+                            <a class="navbar__close"><span></span></a>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-xs-3 col-xs-pull-3 col-sm-1 col-md-1 col-lg-1 col-sm-pull-0 col-md-pull-0 col-lg-pull-0">
                     <ul class="header__language">
                         <!--{section name=i loop=$lng_list}-->
                         <li>
@@ -39,44 +77,6 @@
                         </li>
                         <!--{/section}-->
                     </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="header__navigation">
-        <div class="container-full">
-            <div class="row">
-                <div class="logo">
-                    <a href="<!--{$global_href}-->" title="<!--{$Parameters.company}-->">
-                        <img src="<!--{$globalParams.logo}-->" alt="<!--{$Parameters.company}-->">
-                    </a>
-                </div> 
-                <nav class="navigation">
-                    <div class="nav__mobile">
-                        <a class="navbar__open"><span></span> <i>Навигация</i></a>
-                    </div>
-                    <ul class="navigation__mobile">
-                        <!--{section name=i loop=$MMenu}-->
-                            <li<!--{if $MMenu[i].smenu}--> class="dropdown"<!--{/if}-->>
-                                <!--{if $MMenu[i].smenu}-->
-                                    <a class="dropdown-link" href="<!--{$MMenu[i].sysname}-->" title="<!--{$MMenu[i].name}-->"><!--{$MMenu[i].name}--></a>
-                                <!--{else}-->
-                                    <a href="<!--{$MMenu[i].sysname}-->" title="<!--{$MMenu[i].name}-->"><!--{$MMenu[i].name}--></a>
-                                <!--{/if}-->
-                                    <!--{if $MMenu[i].smenu}-->
-                                        <ul>
-                                        <!--{section name=j loop=$MMenu[i].smenu}-->
-                                            <li><a href="<!--{$MMenu[i].smenu[j].sysname}-->" title="<!--{$MMenu[i].smenu[j].name}-->"><!--{$MMenu[i].smenu[j].name}--></a></li>
-                                        <!--{/section}-->
-                                        </ul>
-                                    <!--{/if}-->
-                            </li>
-                        <!--{/section}-->
-                        <a class="navbar__close"><span></span></a>
-                    </ul>
-                </nav>
-                <div class="callback">
-                    <a data-reveal-id="zvonok" title="<!--{$Parameters.btn_zvonok}-->" class="btn b-full b-small orange-color"><span class="lnr lnr-phone-handset"></span> <!--{$Parameters.btn_zvonok}--></a> 
                 </div>
             </div>
         </div>

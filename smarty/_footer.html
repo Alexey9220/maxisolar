@@ -1,7 +1,7 @@
 <footer class="footer">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+			<div class="xs-center col-xs-12 col-sm-4 col-md-3 col-lg-3">
 				<p class="title__information"><!--{$Parameters.f_company}--></p>
 				<div class="footer__menu">
 					<ul>
@@ -11,7 +11,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+			<div class="xs-center col-xs-12 col-sm-8 col-md-5 col-lg-5">
 				<p class="title__information"><!--{$Parameters.f_usugi}--></p>
 				<div class="footer__menu">
 					<ul>
@@ -25,7 +25,7 @@
 					</ul>	
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+			<div class="sm-center col-xs-12 col-sm-12 col-md-4 col-lg-4">
 				<p class="title__information"><!--{$Parameters.f_conacts}--></p>
 				<p class="information"><span class="lnr lnr-map-marker"></span> <!--{$Parameters.contacts}--></p>		
 				<p class="information"><span class="lnr lnr-phone-handset"></span> <!--{$Parameters.footer_admin}--> <a title="Позвонить" href="tel:<!--{$Parameters.link_tel1_href}-->"><!--{$Parameters.tels1}--></a></p>
@@ -45,7 +45,7 @@
                     <li><a title="Instagram" target="_blank" href="<!--{$Parameters.inst_link}-->"><img src="<!--{$SITE__TEMPLATE}-->/images/social_icon/instagram.svg"></a></li>
                     <!--{/if}-->
                     <!--{if $Parameters.viber_link}-->
-                    <li><a title="Viber" target="_blank" href="viber://chat?number=+<!--{$Parameters.viber_link}-->"><img src="<!--{$SITE__TEMPLATE}-->/images/social_icon/viber.svg"></a></li>
+					<li class="hidden-xs"><a title="Viber" target="_blank" href="viber://chat?number=+<!--{$Parameters.viber_link}-->"><img src="<!--{$SITE__TEMPLATE}-->/images/social_icon/viber.svg"></a></li>
                     <li class="visible-xs-inline-block"><a title="Viber" target="_blank" href="viber://add?number=<!--{$Parameters.viber_link}-->"><img src="<!--{$SITE__TEMPLATE}-->/images/social_icon/viber.svg"></a></li>				
                     <!--{/if}-->
                     <!--{if $Parameters.tgme_link}-->
@@ -88,7 +88,7 @@
 		boxClass: 'wow',
 		animateClass: 'animated',
 		offset: 0,
-		mobile: true,
+		mobile: false,
 		live: true
 	})
 	wow.init();

@@ -115,6 +115,7 @@
     width: $btn-owl-width;
     line-height: 44px;
     border-radius: $btn--radius;
+	box-shadow: $global-box-shadow-45;
 
     &:hover {
         color: $btn--color;

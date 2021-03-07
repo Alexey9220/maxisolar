@@ -1,7 +1,6 @@
 .navigation {
     position: relative;
-    margin: 20px 120px 0px;
-    float: left;
+    margin-top: 15px;
 
     ul {
         list-style-image: none;
@@ -12,14 +11,23 @@
 
     li {
         display: inline-block;
+        margin: 0px 21px 0px 21px;
         position: relative;
+
+        &:first-child {
+            margin-left: 0px;
+        }
+
+        &:last-of-type {
+            margin-right: 0px;
+        }
         
         a {
             color: $global-text-color;
             display: inline-block;
             font-size: 16px;
-            font-weight: 400;
-            padding: 5px 12px 5px 12px;
+            font-weight: 600;
+            padding: 5px 0px 0;
             text-decoration: none;
             text-transform: none;
             transition: $btn--transition;
@@ -82,7 +90,7 @@
         }
 
         &:hover ul {
-            left: 0px;
+            left: -20px;
             width: initial;
             opacity: 1;
         }
@@ -107,23 +115,10 @@
     padding: 5px 15px;
     margin: 0px;
     background: $global-nav-fixed-bg;
-	animation: fixed_nav .95s forwards cubic-bezier(.4, 0, .2, 1);
     box-shadow: $global-box-shadow-45;
 
     .header {
         padding: 0px;
-    }
-
-    .logo img {
-        width: 160px;
-    }
-
-    .navigation {
-        margin: 10px 120px 0px;
-    }
-
-    .callback {
-        margin-top: 2px;
     }
 }
 .mobile__navigation {
@@ -135,6 +130,8 @@
     height: 100%;
     background: $global-bg-respnav;
     z-index: 1000;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     &.active {
         display: block;
@@ -143,12 +140,11 @@
     }
 }
 .navbar__open {
-    position: absolute;
-    left: 25px;
-    top: 15px;
     cursor: pointer;
-    padding: 20px 10px 20px 10px;
     line-height: 5px;
+    margin: 15px 30px 0 0;
+    padding: 20px 10px 20px 10px;
+    display: inline-block;
     color: $global-text-color;
 
     i {
@@ -213,19 +209,21 @@
     display: none;
 }
 
-@media only screen and (max-width: 1199px) {
+@media only screen and (max-width: 1200px) {
 
     .nav__mobile, .navbar__close {
         display: block;
     }
     .navigation {
         position: initial;
+        float: right;
         margin: 0px;
     }
     .navigation ul {
         display: none;
     }
     .navigation li {
+        margin: 0px;
         display: block;
         position: initial;
         text-align: left;

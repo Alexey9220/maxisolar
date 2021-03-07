@@ -32,6 +32,7 @@ body {
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: $headig-font-weight;
+    text-align: center;
     line-height: 1.2em;
     margin: 0 0 15px;
     font-size: 24px;
@@ -46,17 +47,28 @@ p {
 table {
     border-collapse: collapse;
     vertical-align: middle;
+    margin-bottom: 20px;
     border-spacing: 0;
     border: none;
-    margin: 0;
+    padding: 0;
+
+    tr:nth-child(2n) {
+        background: #fff;
+    }
     
     td {
         border-collapse: collapse;
         vertical-align: middle;
         border-spacing: 0;
         border: none;
-        padding: 5px 10px;
+        padding: 10px 15px;
+        font-size: 18px;
         margin: 0; 
+        border-width: thin;
+
+        p {
+            margin-bottom: 0px;
+        }
     }
 }
 img {
@@ -249,31 +261,32 @@ input, select {
     background: #f2f1f1;
 }
 .header__navigation {
-    padding: 15px;
+    padding: 15px 15px 10px;
     background: #fff;
 }
 .header__contacts {
     display: inline-block;
     list-style-image: none;
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 0px;
+    margin: 0px;
 
     li {
-        margin: 0 10px 0 0;
         padding: 0px;
+        margin-right: 10px;
+        font-size: 15px;
         display: inline-block;
-        vertical-align: middle;
+        vertical-align: sub;
 
         & a {
-            color: $global-text-color;
             font-weight: 400;
-            text-decoration: underline;
+            color: $global-text-color;
+            text-decoration: none;
         }
 
         & a:hover {
-            color: $color--orange--hover;
-            text-decoration: underline;
+            color: $color--orange;
+            text-decoration: none;
         }
     }
 
@@ -282,22 +295,21 @@ input, select {
     }
 }
 .header__language {
-    float: right;
     list-style-image: none;
     list-style: none;
-    padding: 0;
-    margin: 0px;
+    text-align: center;
+    margin-top: 15px;
+    padding: 0px;
 
     li {
-        margin: 0px;
+        margin: 5px 0;
         padding: 0px 5px;
-        display: inline-block;
-        vertical-align: middle;
-        border-right: 1px solid $global-shade-color;
+        display: block;
+        border-bottom: 1px solid $global-shade-color;
 
         &:last-child {
             margin: 0;
-            border-right: none;
+            border-bottom: none;
         }
 
         & a {
@@ -323,14 +335,10 @@ input, select {
 }
 .logo {
     float: left;
-
-    img {
-        width: 180px;
-    }
 }
 .callback {
-	float: right;
-    margin-top: 12px;
+	float: left;
+    margin-top: 10px;
 }
 @import "navigation";
 /********* slider **********/
@@ -380,7 +388,13 @@ input, select {
     float: left;
     height: 1px;
     background: $global-shade-color;
-    margin: 20px 0;
+    margin: 15px 0;
+}
+.line__arrow {
+    position: relative;
+    margin: 15px 0;
+    width: 100%;
+    float: left;
 }
 .padding__tb__40 {
     padding: 40px 0;
@@ -388,8 +402,17 @@ input, select {
 .padding__lr__40 {
     padding: 40px 40px;
 }
+.padding__wr__40 {
+    padding: 0px 20px;
+}
 .padding__lr__20 {
     padding: 20px 20px;
+}
+.padding__wr__20 {
+    padding: 20px 0px 10px;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    margin: 10px 0 20px;
 }
 .white__backround {
     background: #fff;
@@ -419,7 +442,7 @@ input, select {
     background-blend-mode: overlay;
     background-attachment: fixed;
     background-position: center center;
-    padding: 160px 0;
+    padding: 150px 0;
     
     &:before {
         @extend %background__before;
@@ -485,15 +508,15 @@ input, select {
 }
 /********* main blocks **********/
 .advantage__title {
-    font-size: 17px;
-    margin: 50px 0 0;
-    font-weight: 500;
+    font-size: 16px;
+    margin: 40px 0 0;
+    font-weight: 600;
 
     & span {
         color: $color--orange;
         display: block;
         font-weight: 700;
-        font-size: 46px;
+        font-size: 42px;
         margin-bottom: 15px;
     }
 }
@@ -501,13 +524,8 @@ input, select {
     margin: 0px;
     padding: 0px;
 
-    &.border {
-        border-right: 1px solid $global-shade-color;
-        border-left: 1px solid $global-shade-color;
-    }
-
     img {
-        width: 80%;
+        width: 70%;
     }
     
     .title {
@@ -515,8 +533,8 @@ input, select {
 
         & a {
             font-size: 18px;
-            font-weight: 500;
-            color: $global-text-color;
+            font-weight: 600;
+            color: $color--orange;
             text-decoration: none;
             padding: 0 20px;
             text-align: center;
@@ -524,7 +542,7 @@ input, select {
         }
 
         & a:hover {
-            color: $color--orange;
+            color: $global-text-color;
             text-decoration: none;
         }
     }
@@ -543,6 +561,16 @@ input, select {
         margin-bottom: 0px;
     }
 }
+.col__pages {
+    margin: 0px;
+    padding: 0px;
+
+    .title {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 20px 0 10px;
+    }
+}
 .stages__coop {
     display: inline-block;
     list-style-image: none;
@@ -555,44 +583,84 @@ input, select {
         list-style: none;
         padding: 0px;
         margin: 0px;
+
+        &.line__twoo {
+            margin-left: 135px;
+        }
     }
 
     li {
         position: relative;
         display: inline-block;
-        vertical-align: middle;
+        vertical-align: text-top;
         list-style-image: none;
         list-style: none;
         margin: 0 10px;
         padding: 0px;
-        width: 135px;
-        max-width: 135px;
+        width: 255px;
+        max-width: 255px;
         font-size: 15px;
-
+   
         & > div {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         & span {
             font-weight: 500;
-            font-size: 14px;
-            box-shadow: $global-box-shadow-25;
+            font-size: 16px;
             display: inline-block;
-            width: 22px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
             background: $color--orange;
             color: #fff;
             position: absolute;
-            top: 50px;
-            left: 15px;
+            top: 40px;
+            left: 45px;
             border-radius: 50%;
-            line-height: 20px;
+            line-height: 29px;
         }
 
         & strong {
             display: block;
+            font-size: 18px;
             font-weight: 600;
-            margin: 20px 0 10px;
+            margin: 5px 0;
+        }
+
+        &.arrow__right:before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            right: -20px;
+            background: url(/_files/template/images/arrow.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 60px;
+            height: 30px;  
+        }
+
+        &.arrow__twoo:after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            right: -20px;
+            background: url(/_files/template/images/arrow.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 60px;
+            height: 30px;  
+        }
+
+        &.arrow__left:before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: -50px;
+            background: url(/_files/template/images/arrow.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 60px;
+            height: 30px;  
         }
     }
 }
@@ -663,7 +731,7 @@ input, select {
         margin-top: 25%;
 
         > a {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
     }
 
@@ -683,7 +751,7 @@ input, select {
     }
 }
 .title__project {
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 5px;
     font-weight: 600;
 }
@@ -693,6 +761,10 @@ input, select {
 
     p {
         margin-bottom: 5px;
+    }
+
+    strong {
+        font-weight: 600;
     }
     
     .green__tariff {
@@ -822,6 +894,7 @@ input, select {
     width: 45px;
     display: none;
     text-align: center;
+    border-radius: $btn--radius;
     background: $color--orange;
     transition: $btn--transition;
 
@@ -852,3 +925,62 @@ input, select {
 @import "fancybox";
 
 @import "media";
+
+.heading__page {
+    font-size: 20px;
+}
+table td.tb1 ,table td.tb2, table td.tb3 {
+	padding: 10px 35px;
+}
+table td.tb1 {
+	border-right: none;
+    font-weight: 300;
+}
+table td.tb2 {
+	border-right: none;
+    font-weight: 300;
+}
+table td.tb3 {
+    border-right: none;
+    font-weight: 300;
+}
+table .tb2_1 {
+	background: #F4F9F5;
+	font-size: 18px;
+}
+table .tb3_1 {
+	background: #F9FCFA;
+	font-size: 18px;
+}
+table .tb2_1_2 {
+	background: #F4F9F5;
+	font-size: 18px;
+	font-weight: 400;
+}
+table .tb3_1_2 {
+	background: #F9FCFA;
+	font-size: 18px;
+	font-weight: 400;
+}
+table .tb1 {
+	background: #f9f8f8;
+	font-size: 16px;
+	font-weight: 500;
+}
+table .tb2 {
+	background: #FF6B00;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 500;
+}
+table .tb3 {
+	background: #ff8400;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 500;
+}
+table td.tb2 h3, table td.tb3 h3 {
+	font-weight: 300;
+	margin: 10px 0;
+    padding: 0 40px;
+}

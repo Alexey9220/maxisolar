@@ -9,6 +9,7 @@
     line-height: initial;
     text-align: center;
     border-radius: $btn--radius;
+    text-transform: uppercase;
     appearance: none;
     border: none;
     outline: 0;
@@ -18,8 +19,12 @@
         vertical-align: middle;
     }
 }
+.b-biglg {
+    padding: 18px 62px;
+    font-size: 15px;
+}
 .b-large {
-    padding: 16px 52px;
+    padding: 18px 32px;
     font-size: 15px;
 }
 .b-average {
@@ -27,8 +32,8 @@
     font-size: 13px;
 }
 .b-small {
-    padding: 14px 36px;
-    font-size: 12px;
+    padding: 10px 25px;
+    font-size: 13px;
 }
 .b-xs-small {
     padding: 5px 28px;
